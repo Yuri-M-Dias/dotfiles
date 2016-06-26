@@ -34,6 +34,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #TODO: fishrc? OMF?
 ln -sfn `pwd`/vimrc ~/.vimrc
 ln -sfn `pwd`/tmux.conf ~/.tmux.conf
+ln -sfn `pwd`/gitconfig ~/.gitconfig
 
 #Installs Vim-gitgutter, because not on Vundle
 echo 'Installing Vim-gitgutter'
