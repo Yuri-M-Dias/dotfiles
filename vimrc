@@ -15,6 +15,12 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " let us have a pattern of styles ( spaces, eol, charset, others... )
 Plugin 'editorconfig/editorconfig-vim'
+" Adds airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Markdown syntax highlighting
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 set shell=/bin/zsh
 syntax enable

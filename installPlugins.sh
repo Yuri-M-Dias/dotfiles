@@ -5,10 +5,9 @@ sudo apt-get update
 sudo apt-get install cmake python2.7-dev python3.4-dev zsh silversearcher-ag \
                      exuberant-ctags libevent-dev markdown vim vim-nox \
                      autotools-dev automake ncurses-dev clang-3.5 \
-		     fish \
                      clang-format-3.5 -y
 
-echo 'Update tmux'
+echo 'Update tmux, compiling from source'
 git clone https://github.com/tmux/tmux/
 cd tmux
 sh autogen.sh
@@ -30,6 +29,7 @@ mkdir -p ~/.vim/undo/
 echo 'Installing vundle'
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+echo 'Creating links to config files'
 #ln -sfn `pwd`/zshenv ~/.zshenv
 #TODO: fishrc? OMF?
 ln -sfn `pwd`/vimrc ~/.vimrc
@@ -44,3 +44,5 @@ cd -
 
 echo 'Installing vim plugins'
 vim +PluginInstall +qall
+
+
