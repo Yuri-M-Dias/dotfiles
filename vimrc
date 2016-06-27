@@ -21,6 +21,8 @@ Plugin 'vim-airline/vim-airline-themes'
 " Markdown syntax highlighting
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+" Improved search highlight
+Plugin 'timakro/vim-searchant'
 
 set shell=/bin/zsh
 syntax enable
