@@ -25,6 +25,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'timakro/vim-searchant'
 
 set shell=/bin/zsh
+set t_Co=256
+set term=screen-256color
 syntax enable
 set background=dark
 set number
@@ -42,6 +44,11 @@ set colorcolumn=80
 set wildmenu
 set scrolloff=10
 set nofoldenable
+
+" Airline configuration
+let g:airline_powerline_fonts=1
+let g:airline_theme='bubblegum'
+let g:Powerline_symbols='unicode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
