@@ -44,6 +44,7 @@ set colorcolumn=80
 set wildmenu
 set scrolloff=10
 set nofoldenable
+set incsearch
 
 " Airline configuration
 let g:airline_powerline_fonts=1
