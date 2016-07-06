@@ -64,6 +64,10 @@ let g:Powerline_symbols='unicode'
 
 " Keys remapping should go here
 nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>f :wq<CR>
+nnoremap <leader>c :set relativenumber!<CR>
+nnoremap <leader>r :so $MYVIMRC<CR>
 " Conditional key mappings: will work only for the files endings specified
 autocmd BufNewFile,BufRead *.apib nnoremap <leader>b :!apiary preview --output="api-docs.html"<CR>
 autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
