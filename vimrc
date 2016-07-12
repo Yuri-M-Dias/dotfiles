@@ -55,9 +55,9 @@ set scrolloff=10
 set nofoldenable
 set incsearch
 " display indentation guides
-set list listchars=tab:❘-,trail:·,extends:»,precedes:«,nbsp:×
+set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 shiftwidth=4 sts=4 noet
 
 " Airline configuration
 let g:airline_powerline_fonts=1
@@ -74,6 +74,8 @@ nnoremap <leader>r :so $MYVIMRC<CR>
 autocmd BufNewFile,BufRead *.apib nnoremap <leader>b :!apiary preview --output="api-docs.html"<CR>
 autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
 autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
+autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
+autocmd FileType python setlocal et
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
