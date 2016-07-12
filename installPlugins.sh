@@ -35,6 +35,7 @@ echo 'Creating links to config files'
 ln -sfn `pwd`/vimrc ~/.vimrc
 ln -sfn `pwd`/tmux.conf ~/.tmux.conf
 ln -sfn `pwd`/gitconfig ~/.gitconfig
+ln -sfn `pwd`/fish-config/functions/aliases.fish ~/.config/fish/aliases.fish
 
 #Installs Vim-gitgutter, because not on Vundle
 echo 'Installing Vim-gitgutter'
