@@ -29,6 +29,8 @@ Plugin 'mbbill/undotree'
 Plugin 'kylef/apiblueprint.vim'
 " Installs syntastic
 Plugin 'scrooloose/syntastic'
+" Fish files syntax highlight
+Plugin 'dag/vim-fish'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
