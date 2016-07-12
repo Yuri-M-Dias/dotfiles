@@ -21,22 +21,29 @@ alias g="git"
 
 # git related shortcut
 alias undopush="git push -f origin HEAD^:master"
+#Diff
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias ga="git add"
+# Commit
 alias gca="git commit -a -m"
 alias gcm="git commit -m"
-alias gbd="git branch -D"
+# Git status
 alias gst="git status -sb --ignore-submodules"
+alias gss="git status"
+alias gl="git log"
+#Merge
 alias gm="git merge --no-ff"
 alias gpt="git push --tags"
 alias gp="git push"
 alias grs="git reset --soft"
 alias grh="git reset --hard"
+#Branch
 alias gb="git branch"
+alias gbd="git branch -D"
+alias gba="git branch -a"
+#Checkout
 alias gcob="git checkout -b"
 alias gco="git checkout"
-alias gba="git branch -a"
 alias gcp="git cherry-pick"
-alias gl="git log"
 alias gpom="git pull origin master"
