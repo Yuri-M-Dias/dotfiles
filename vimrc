@@ -31,6 +31,12 @@ Plugin 'kylef/apiblueprint.vim'
 Plugin 'scrooloose/syntastic'
 " Fish files syntax highlight
 Plugin 'dag/vim-fish'
+" Easymotion, for vimium-like finding
+Plugin 'easymotion/vim-easymotion'
+" SQL formatter and utils
+Plugin 'vim-scripts/SQLUtilities'
+" Align plugin
+Plugin 'vim-scripts/Align'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
@@ -76,6 +82,9 @@ autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
 autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd FileType python setlocal et
+
+" Custom command customizations
+command Foo :echo "Hello"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
