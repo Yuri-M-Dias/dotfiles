@@ -19,7 +19,7 @@ alias g="git"
 ###  Program ShortCut
 ################################
 
-# git related shortcut
+# git related shortcuts
 alias undopush="git push -f origin HEAD^:master"
 #Diff
 alias gd="git diff"
@@ -47,3 +47,5 @@ alias gcob="git checkout -b"
 alias gco="git checkout"
 alias gcp="git cherry-pick"
 alias gpom="git pull origin master"
+
+alias gfo="git fetch origin"

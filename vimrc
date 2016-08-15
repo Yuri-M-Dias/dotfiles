@@ -37,6 +37,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-scripts/SQLUtilities'
 " Align plugin
 Plugin 'vim-scripts/Align'
+" Syntax!
+Plugin 'sheerun/vim-polyglot'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
@@ -84,7 +86,7 @@ autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd FileType python setlocal et
 
 " Custom command customizations
-command Foo :echo "Hello"
+"command! Foo :echo "Hello"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
