@@ -21,6 +21,7 @@ alias g="git"
 
 # git related shortcuts
 alias undopush="git push -f origin HEAD^:master"
+alias addtocommit="git commit --amend -C HEAD"
 #Diff
 alias gd="git diff"
 alias gdc="git diff --cached"
