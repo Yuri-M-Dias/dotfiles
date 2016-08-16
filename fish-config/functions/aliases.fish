@@ -32,6 +32,7 @@ alias gcm="git commit -m"
 alias gst="git status -sb --ignore-submodules"
 alias gss="git status"
 alias gl="git log"
+alias gls="git log --stat"
 #Merge
 alias gm="git merge --no-ff"
 alias gpt="git push --tags"
