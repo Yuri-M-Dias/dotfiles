@@ -32,12 +32,16 @@ alias gcm="git commit -m"
 # Git status
 alias gst="git status -sb --ignore-submodules"
 alias gss="git status"
+alias gsst="git status"
 alias gl="git log"
 alias gls="git log --stat"
+alias glsa="git log --stat --all"
 #Merge
 alias gm="git merge --no-ff"
 alias gpt="git push --tags"
 alias gp="git push"
+# Pushes only the current branch
+alias gpuoh="git push origin HEAD"
 alias grs="git reset --soft"
 alias grh="git reset --hard"
 #Branch
@@ -45,9 +49,9 @@ alias gb="git branch"
 alias gbd="git branch -D"
 alias gba="git branch -a"
 #Checkout
-alias gcob="git checkout -b"
-alias gco="git checkout"
-alias gcp="git cherry-pick"
-alias gpom="git pull origin master"
+alias gchob="git checkout -b"
+alias gcho="git checkout"
+alias gchpk="git cherry-pick"
+alias gplom="git pull origin master"
 
 alias gfo="git fetch origin"
