@@ -39,6 +39,8 @@ Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/Align'
 " Syntax!
 Plugin 'sheerun/vim-polyglot'
+" Ctrlp fuzzy file search
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
@@ -66,11 +68,14 @@ set incsearch
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
 set tabstop=4 shiftwidth=4 sts=4 noet
+set fileformats=unix
 
 " Airline configuration
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
+let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
+let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
 " Keys remapping should go here
 nnoremap <F5> :UndotreeToggle<cr>
@@ -78,11 +83,26 @@ nnoremap <leader>s :w<CR>
 nnoremap <leader>f :wq<CR>
 nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader>r :so $MYVIMRC<CR>
+"
+" done with it
+nnoremap <LEADER>d :w<CR>:bd<CR>
+" forget about it
+nnoremap <LEADER>x :bd!<CR>
+" previous buffer
+nnoremap <C-H> :bp<CR>
+" next buffer
+nnoremap <C-L> :bn<CR>
+
+" move one line up
+nnoremap <LEADER><UP> ddkP
+" move one line down
+nnoremap <LEADER><DOWN> ddp
+
 " Conditional key mappings: will work only for the files endings specified
 autocmd BufNewFile,BufRead *.apib nnoremap <leader>b :!apiary preview --output="api-docs.html"<CR>
-autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
-autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
-autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
+autocmd BufNewFile,BufRead *.jade set ft=pug
+"autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
+"autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd FileType python setlocal et
 
 " Custom command customizations
