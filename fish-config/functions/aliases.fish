@@ -29,6 +29,8 @@ alias ga="git add"
 # Commit
 alias gca="git commit -a -m"
 alias gcm="git commit -m"
+alias gcv="git commit -v"
+
 # Git status
 alias gst="git status -sb --ignore-submodules"
 alias gss="git status"
