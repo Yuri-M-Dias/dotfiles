@@ -41,6 +41,8 @@ Plugin 'vim-scripts/Align'
 Plugin 'sheerun/vim-polyglot'
 " Ctrlp fuzzy file search
 Plugin 'ctrlpvim/ctrlp.vim'
+" R support
+Plugin 'jalvesaq/Nvim-R'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
