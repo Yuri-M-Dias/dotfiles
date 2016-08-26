@@ -43,6 +43,8 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'ctrlpvim/ctrlp.vim'
 " R support
 Plugin 'jalvesaq/Nvim-R'
+" emmet for fast html
+Plugin 'mattn/emmet-vim'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
@@ -70,7 +72,7 @@ set incsearch
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
 set tabstop=4 shiftwidth=4 sts=4 noet
-set fileformats=unix
+" set fileformats=unix
 
 " Airline configuration
 let g:airline_powerline_fonts=1
