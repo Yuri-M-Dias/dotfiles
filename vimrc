@@ -73,6 +73,7 @@ set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
 set tabstop=4 shiftwidth=4 sts=4 noet
 " set fileformats=unix
+set mouse=a
 
 " Airline configuration
 let g:airline_powerline_fonts=1

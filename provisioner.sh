@@ -7,7 +7,7 @@ echo 'Updating and installing packages'
 sudo apt-get update
 sudo apt-get install gcc gfortran g++ curl fish \
 	#xorg-dev libreadline-dev \
-	wget
+	wget -y
 
 # Docker
 
