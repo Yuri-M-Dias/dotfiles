@@ -10,6 +10,8 @@ alias lsd='ls -l | grep "^d"'
 alias ll='ls -ahlF'
 alias l='ls -CF'
 
+alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.com'
+
 ################################
 ###  File ShortCut
 ################################

@@ -45,6 +45,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jalvesaq/Nvim-R'
 " emmet for fast html
 Plugin 'mattn/emmet-vim'
+" Configurable color themes
+Plugin 'flazz/vim-colorschemes'
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
@@ -75,12 +77,14 @@ set tabstop=4 shiftwidth=4 sts=4 noet
 " set fileformats=unix
 set mouse=a
 
-" Airline configuration
+" Plugin configurations
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
+
+" colorscheme molokai
 
 " Keys remapping should go here
 nnoremap <F5> :UndotreeToggle<cr>
