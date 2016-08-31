@@ -45,14 +45,22 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'jalvesaq/Nvim-R'
 " emmet for fast html
 Plugin 'mattn/emmet-vim'
-" Configurable color themes
+
+" Color themes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " All sets and specific configuration should go here
 set shell=/bin/bash
 set t_Co=256
 set term=screen-256color
 syntax enable
+syntax on
 set background=dark
 set number
 set relativenumber
@@ -74,7 +82,7 @@ set incsearch
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
 set tabstop=4 shiftwidth=4 sts=4 noet
-" set fileformats=unix
+"kk set fileformats=unix
 set mouse=a
 
 " Plugin configurations
@@ -84,7 +92,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
-" colorscheme molokai
+colorscheme molokai
 
 " Keys remapping should go here
 nnoremap <F5> :UndotreeToggle<cr>
@@ -110,6 +118,7 @@ nnoremap <LEADER><DOWN> ddp
 " Conditional key mappings: will work only for the files endings specified
 autocmd BufNewFile,BufRead *.apib nnoremap <leader>b :!apiary preview --output="api-docs.html"<CR>
 autocmd BufNewFile,BufRead *.jade set ft=pug
+autocmd BufNewFile,BufRead *.fish set ft=fish
 "autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
 "autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd FileType python setlocal et
@@ -117,6 +126,3 @@ autocmd FileType python setlocal et
 " Custom command customizations
 "command! Foo :echo "Hello"
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
