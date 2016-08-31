@@ -1,16 +1,20 @@
+################################
+###  Bash-like aliases for fish.
+################################
 alias ..="cd .."
 alias ...="cd ../.."
 alias -="cd -"
 
 alias la="ls -Gla"
-
 # List only directories
 alias lsd='ls -l | grep "^d"'
-
 alias ll='ls -ahlF'
 alias l='ls -CF'
 
 alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.com'
+
+# Force tmux to use 256 colors
+alias tmux='tmux -2'
 
 ################################
 ###  File ShortCut
@@ -23,6 +27,7 @@ alias g="git"
 
 # git related shortcuts
 alias undopush="git push -f origin HEAD^:master"
+alias undocommit="git reset HEAD~"
 alias addtocommit="git commit --amend -C HEAD"
 #Diff
 alias gd="git diff"
