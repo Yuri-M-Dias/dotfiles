@@ -41,6 +41,7 @@ echo 'Creating links to config files'
 ln -sfn `pwd`/vimrc ~/.vimrc
 ln -sfn `pwd`/tmux.conf ~/.tmux.conf
 ln -sfn `pwd`/gitconfig ~/.gitconfig
+ln -sfn `pwd`/bash_aliases ~/.bash_aliases
 
 #Fish configuration
 ln -sfn `pwd`/fish-config/functions/aliases.fish ~/.config/fish/aliases.fish

@@ -16,6 +16,9 @@ alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.c
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
 
+# Merge fish history
+alias histmerge='history --merge'
+
 ################################
 ###  File ShortCut
 ################################
@@ -33,6 +36,7 @@ alias addtocommit="git commit --amend -C HEAD"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias ga="git add"
+alias gaa="git add . -A"
 # Commit
 alias gca="git commit -a -m"
 alias gcm="git commit -m"
