@@ -45,10 +45,11 @@ alias gcv="git commit -v"
 # Git status
 alias gst="git status -sb --ignore-submodules"
 alias gss="git status"
-alias gsst="git status"
+alias gsst="git status --short"
 alias gl="git log"
 alias gls="git log --stat"
 alias glsa="git log --stat --all"
+alias glp="git log -p"
 #Merge
 alias gm="git merge --no-ff"
 alias gpt="git push --tags"
