@@ -18,6 +18,7 @@ alias tmux='tmux -2'
 
 # Merge fish history
 alias histmerge='history --merge'
+alias reloadConfig='source ~/.config/fish/config.fish'
 
 ################################
 ###  File ShortCut
@@ -69,3 +70,18 @@ alias gchpk="git cherry-pick"
 alias gplom="git pull origin master"
 
 alias gfo="git fetch origin"
+
+
+#####
+# Grails and Groovy shortcuts
+####
+# Creation
+alias @gracapp="grails create-app"
+alias @gracdc="grails create-domain-class"
+alias @gracc="grails create-controller"
+alias @gracsc="grails create-scaffold-controller"
+alias @gracit="grails create-integration-test"
+# Tests
+alias @gratsa="grails test-app"
+alias @gratsai="grails test-app -integration"
+
