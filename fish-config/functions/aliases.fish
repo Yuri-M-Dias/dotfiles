@@ -72,6 +72,12 @@ alias gplom="git pull origin master"
 alias gfo="git fetch origin"
 
 
+# Since git doesn't seem to provide a profiling alternative...
+alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"
+#alias gitUserZG="git fetch origin"
+
+
+
 #####
 # Grails and Groovy shortcuts
 ####
@@ -81,6 +87,7 @@ alias @gracdc="grails create-domain-class"
 alias @gracc="grails create-controller"
 alias @gracsc="grails create-scaffold-controller"
 alias @gracse="grails create-service"
+alias @gracfs="grails create-filters"
 alias @gracit="grails create-integration-test"
 # Tests
 alias @gratsa="grails test-app"
