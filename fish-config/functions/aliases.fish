@@ -80,6 +80,7 @@ alias @gracapp="grails create-app"
 alias @gracdc="grails create-domain-class"
 alias @gracc="grails create-controller"
 alias @gracsc="grails create-scaffold-controller"
+alias @gracse="grails create-service"
 alias @gracit="grails create-integration-test"
 # Tests
 alias @gratsa="grails test-app"
