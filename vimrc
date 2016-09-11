@@ -82,7 +82,7 @@ set incsearch
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
 set tabstop=4 shiftwidth=4 sts=4 noet
-"kk set fileformats=unix
+"set fileformats=unix
 set mouse=a
 
 " Plugin configurations
@@ -94,17 +94,26 @@ let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
 colorscheme molokai
 
-" Keys remapping should go here
+" Keys remapping should go here "
 nnoremap <F5> :UndotreeToggle<cr>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>f :wq<CR>
 nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader>r :so $MYVIMRC<CR>
-"
+
 " done with it
 nnoremap <LEADER>d :w<CR>:bd<CR>
 " forget about it
 nnoremap <LEADER>x :bd!<CR>
+
+" Navigation like a Browser, but for buffers.
+nnoremap <C-S-tab> :bp<CR>
+nnoremap <C-tab>   :bn<CR>
+"nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:bp<CR>i
+inoremap <C-tab>   <Esc>:bn<CR>i
+"inoremap <C-t>     <Esc>:tabnew<CR>
+
 " previous buffer
 nnoremap <C-H> :bp<CR>
 " next buffer
