@@ -71,6 +71,9 @@ alias gplom="git pull origin master"
 
 alias gfo="git fetch origin"
 
+# Since git doesn't seem to provide a profiling alternative...
+alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"
+#alias gitUserZG="git fetch origin"
 
 # Since git doesn't seem to provide a profiling alternative...
 alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"
