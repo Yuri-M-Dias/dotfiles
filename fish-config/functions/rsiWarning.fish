@@ -3,7 +3,7 @@
 set interval 1500
 function rsiWarning --description 'Simple warning to go stretch'
 	while sleep $interval
-		echo "Notifyin!"
+		echo Notify: (date)
 		notify-send "Go stretch!" -u critical
 	end
 end

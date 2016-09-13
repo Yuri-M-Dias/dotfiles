@@ -89,6 +89,7 @@ alias @gracl="grails clean"
 alias @gracmp="grails compile"
 alias @grarecmp="@gracl; and @gracmp"
 alias @grarapp="grails run-app"
+alias @graip="grails install-plugin"
 # Creation
 alias @gracapp="grails create-app"
 alias @gracdc="grails create-domain-class"
@@ -103,5 +104,7 @@ alias @gracft="grails create-functional-test"
 alias @gratsa="grails test-app"
 alias @gratsai="grails test-app -integration"
 alias @gratsau="grails test-app -unit"
+alias @gratsaf="grails test-app -functional"
+# Plugin only? Really necessary anymore?
 alias @grafts="grails functional-tests"
 
