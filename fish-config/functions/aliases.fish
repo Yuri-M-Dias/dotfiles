@@ -59,6 +59,7 @@ alias gp="git push"
 alias gpuoh="git push origin HEAD"
 alias grs="git reset --soft"
 alias grh="git reset --hard"
+alias gruns="git reset HEAD"
 #Branch
 alias gb="git branch"
 alias gbd="git branch -D"
@@ -83,7 +84,11 @@ alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.em
 
 #####
 # Grails and Groovy shortcuts
-####
+#####
+alias @gracl="grails clean"
+alias @gracmp="grails compile"
+alias @grarecmp="@gracl; and @gracmp"
+alias @grarapp="grails run-app"
 # Creation
 alias @gracapp="grails create-app"
 alias @gracdc="grails create-domain-class"
@@ -92,7 +97,11 @@ alias @gracsc="grails create-scaffold-controller"
 alias @gracse="grails create-service"
 alias @gracfs="grails create-filters"
 alias @gracit="grails create-integration-test"
+alias @gractl="grails create-tag-lib"
+alias @gracft="grails create-functional-test"
 # Tests
 alias @gratsa="grails test-app"
 alias @gratsai="grails test-app -integration"
+alias @gratsau="grails test-app -unit"
+alias @grafts="grails functional-tests"
 

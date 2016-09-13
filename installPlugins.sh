@@ -37,14 +37,17 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo 'Creating links to config files'
 #ln -sfn `pwd`/zshenv ~/.zshenv
-#TODO: fishrc? OMF?
 ln -sfn `pwd`/vimrc ~/.vimrc
 ln -sfn `pwd`/tmux.conf ~/.tmux.conf
 ln -sfn `pwd`/gitconfig ~/.gitconfig
 ln -sfn `pwd`/bash_aliases ~/.bash_aliases
+ln -sfn `pwd`/ideavimrc ~/.ideavimrc
 
 #Fish configuration
+# TODO: symlink the entire repository
 ln -sfn `pwd`/fish-config/functions/aliases.fish ~/.config/fish/aliases.fish
+ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsiWarning.fish 
+# TODO: OMF config, themes and plugins?
 #Backup the current one
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn `pwd`/fish-config/config.fish ~/.config/fish/config.fish

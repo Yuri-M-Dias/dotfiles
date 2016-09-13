@@ -1,0 +1,6 @@
+
+set number
+set relativenumber
+
+" Reload .ideavimrc
+nnoremap <space>vs :source ~/.ideavimrc<CR>
