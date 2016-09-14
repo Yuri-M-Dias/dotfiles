@@ -1,4 +1,4 @@
-# Create by: Yuri-M-Dias #
+# Created by: Yuri-M-Dias #
 alias tmux='tmux -2'
 alias df="df -Tha --total"
 alias du="du -ach | sort -h"
