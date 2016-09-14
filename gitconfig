@@ -9,3 +9,5 @@
 	helper = cache
 [push]
 	default = simple
+[url "https://Yuri-M-Dias@github.com"]
+	insteadOf = https://github.com

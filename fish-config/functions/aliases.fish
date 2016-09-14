@@ -71,6 +71,7 @@ alias gchpk="git cherry-pick"
 alias gplom="git pull origin master"
 
 alias gfo="git fetch origin"
+alias gclo="git clone"
 
 # Since git doesn't seem to provide a profiling alternative...
 alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"

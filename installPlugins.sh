@@ -58,6 +58,11 @@ cd /tmp && git clone git://github.com/airblade/vim-gitgutter.git
 cp -r vim-gitgutter/* ~/.vim
 cd -
 
+#Installs standalone vim-groovy identation
+#echo 'Installing vim-groovy'
+#cd /tmp && https://github.com/vim-scripts/groovyindent-unix.git
+#cp 
+
 echo 'Installing vim plugins'
 vim +PluginInstall +qall
 
