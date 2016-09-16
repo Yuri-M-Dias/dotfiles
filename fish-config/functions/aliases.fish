@@ -11,6 +11,11 @@ alias lsd='ls -l | grep "^d"'
 alias ll='ls -ahlF'
 alias l='ls -CF'
 
+# TODO: make sudo optional?
+alias suAptUp="sudo apt-get update"
+alias suAptIns="sudo apt-get install"
+alias suAptRm="sudo apt-get remove"
+
 alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.com'
 
 # Force tmux to use 256 colors
@@ -42,6 +47,9 @@ alias gaa="git add . -A"
 alias gca="git commit -a -m"
 alias gcm="git commit -m"
 alias gcv="git commit -v"
+# Stash
+alias gtash="git stash"
+alias gtasha="git stash apply"
 
 # Git status
 alias gst="git status -sb --ignore-submodules"
