@@ -1,6 +1,9 @@
 
 set number
 set relativenumber
+set showmode
 
+" Enter the command-line mode
+noremap <CR> :
 " Reload .ideavimrc
-nnoremap <space>vs :source ~/.ideavimrc<CR>
+nnoremap <space>r :source ~/.ideavimrc<CR>
