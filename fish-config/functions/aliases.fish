@@ -17,6 +17,7 @@ alias suAptIns="sudo apt-get install"
 alias suAptRm="sudo apt-get remove"
 
 alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.com'
+alias scanOpenPorts="nmap -sT"
 
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
