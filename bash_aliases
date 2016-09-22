@@ -12,3 +12,4 @@ alias histg="history | grep"
 # Personal shortcuts shamelessly copied over
 alias @src='source ~/.bashrc'
 alias @ta='tmux -2 attach'
+alias @tn='tmux -2 new -s'
