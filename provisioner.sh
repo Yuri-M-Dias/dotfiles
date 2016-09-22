@@ -31,12 +31,17 @@ echo 'Installing oh-my-fish'
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
 #Install R - easier to just do it with apt-get if avaliable
-echo 'Installing R'
-$RVERSION = 3.2.5
-wget https://cran.r-project.org/src/base/R-3/R-3.2.4.tar.gz
-tar -zxvf R-$RVERSION.tar.gz
-cd /tmp/R-$RVERSION/
-./configure --with-x=no
-make
-cd -
+# NOT WORKING
+#echo 'Installing R'
+#$RVERSION = 3.2.5
+#wget https://cran.r-project.org/src/base/R-3/R-3.2.4.tar.gz
+#tar -zxvf R-$RVERSION.tar.gz
+#cd /tmp/R-$RVERSION/
+#./configure --with-x=no
+#make
+#cd -
 
+echo 'Installing Docker'
+wget -qO- https://get.docker.com/ | sh
+sudo usermod -aG docker <username> && sudo service docker start
+#newgrp docker
