@@ -2,8 +2,12 @@
 set number
 set relativenumber
 set showmode
+set incsearch
 
 " Enter the command-line mode
-noremap <CR> :
+nnoremap <CR> :
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <ESC>:w<CR>
 " Reload .ideavimrc
 nnoremap <space>r :source ~/.ideavimrc<CR>
+"inoremap jj <esc>
