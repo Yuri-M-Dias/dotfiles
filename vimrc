@@ -43,6 +43,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'ctrlpvim/ctrlp.vim'
 " R support
 Plugin 'jalvesaq/Nvim-R'
+"Plugin 'vim-scripts/Vim-R-plugin'
 " emmet for fast html
 Plugin 'mattn/emmet-vim'
 
@@ -91,12 +92,17 @@ let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
-
+let vimrplugin_applescript=0
+let vimrplugin_vsplit=1
 colorscheme molokai
 
 " Keys remapping should go here "
 nnoremap <F5> :UndotreeToggle<cr>
+" Don't use Ex mode, use Q for formatting
+map Q gq
+" Easier saving
 nnoremap <leader>s :w<CR>
+" Force saving
 nnoremap <leader>f :wq<CR>
 nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader>r :so $MYVIMRC<CR>
@@ -123,6 +129,16 @@ nnoremap <C-L> :bn<CR>
 nnoremap <LEADER><UP> ddkP
 " move one line down
 nnoremap <LEADER><DOWN> ddp
+
+" copiar e colar
+"vmap <C-c> "*y     " Yank current selection into system clipboard
+"nmap <C-c> "*Y     " Yank current line into system clipboard (if nothing is selected)
+"nmap <C-v> "*p     " Paste from system clipboard
+"
+
+" R plugin configuration
+"vmap <Space> <Plug>RDSendSelection
+"nmap <Space> <Plug>RDSendLine
 
 " Conditional key mappings: will work only for the files endings specified
 autocmd BufNewFile,BufRead *.apib nnoremap <leader>b :!apiary preview --output="api-docs.html"<CR>
