@@ -23,6 +23,10 @@ alias scanOpenPorts="nmap -sT"
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
 
+# Easier clipboard on unix
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
+
 # Merge fish history
 alias histmerge='history --merge'
 alias reloadConfig='source ~/.config/fish/config.fish'
