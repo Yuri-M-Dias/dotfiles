@@ -51,6 +51,7 @@ ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsi
 #Backup the current one
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn `pwd`/fish-config/config.fish ~/.config/fish/config.fish
+ln -sfn `pwd`/Rprofile ~/.Rprofile 
 
 #Installs Vim-gitgutter, because not on Vundle
 echo 'Installing Vim-gitgutter'

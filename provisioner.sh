@@ -30,6 +30,13 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | 
 echo 'Installing oh-my-fish'
 curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 
+echo "Installing R package and dependencies"
+cd tmp
+git clone https://github.com/jalvesaq/colorout.git
+R CMD INSTALL colorout
+#TODO: install devtools?
+#R CMD INSTALL devtools
+
 #Install R - easier to just do it with apt-get if avaliable
 # NOT WORKING
 #echo 'Installing R'
