@@ -23,6 +23,10 @@ alias scanOpenPorts="nmap -sT"
 # Force tmux to use 256 colors
 alias tmux='tmux -2'
 
+# Easier clipboard on unix
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection clipboard -o'
+
 # Merge fish history
 alias histmerge='history --merge'
 alias reloadConfig='source ~/.config/fish/config.fish'
@@ -52,6 +56,7 @@ alias gcv="git commit -v"
 # Stash
 alias gtash="git stash"
 alias gtasha="git stash apply"
+alias gtashl="git stash list"
 
 # Git status
 alias gst="git status -sb --ignore-submodules"
