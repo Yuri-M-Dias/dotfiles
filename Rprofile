@@ -8,4 +8,7 @@
 if (interactive()) {
 	suppressMessages(require(devtools))
 	suppressMessages(require(colorout))
+	suppressMessages(require(setwidth))
+	library(nvimcom)
+	options(editor = "leafpad")
 }

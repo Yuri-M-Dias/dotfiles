@@ -92,8 +92,14 @@ let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
-let vimrplugin_applescript=0
-let vimrplugin_vsplit=1
+"let vimrplugin_applescript=0
+"let vimrplugin_vsplit=1
+"let R_esc_term = 0
+"let R_close_term = 0
+"let R_in_buffer = 0
+let g:R_in_buffer = 0
+let g:R_applescript = 0
+let g:R_tmux_split = 1
 colorscheme molokai
 
 " Keys remapping should go here "
