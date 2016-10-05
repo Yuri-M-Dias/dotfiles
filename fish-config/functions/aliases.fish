@@ -52,6 +52,7 @@ alias gcv="git commit -v"
 # Stash
 alias gtash="git stash"
 alias gtasha="git stash apply"
+alias gtashl="git stash list"
 
 # Git status
 alias gst="git status -sb --ignore-submodules"
