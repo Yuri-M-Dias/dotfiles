@@ -46,6 +46,8 @@ Plugin 'jalvesaq/Nvim-R'
 "Plugin 'vim-scripts/Vim-R-plugin'
 " emmet for fast html
 Plugin 'mattn/emmet-vim'
+" Fancy start screen
+Plugin 'mhinz/vim-startify'
 
 " Color themes
 Plugin 'altercation/vim-colors-solarized'
