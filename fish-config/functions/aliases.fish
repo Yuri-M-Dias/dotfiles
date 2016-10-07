@@ -62,10 +62,12 @@ alias gtashl="git stash list"
 alias gst="git status -sb --ignore-submodules"
 alias gss="git status"
 alias gsst="git status --short"
+# Git logs
 alias gl="git log"
 alias gls="git log --stat"
 alias glsa="git log --stat --all"
 alias glp="git log -p"
+alias glpt="git prettytree"
 #Merge
 alias gm="git merge --no-ff"
 alias gpt="git push --tags"
@@ -90,7 +92,6 @@ alias gclo="git clone"
 
 # Since git doesn't seem to provide a profiling alternative...
 alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"
-#alias gitUserZG="git fetch origin"
 
 #####
 # Grails and Groovy shortcuts
