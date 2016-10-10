@@ -12,7 +12,7 @@ alias ll='ls -ahlF'
 alias l='ls -CF'
 
 # TODO: make sudo optional?
-alias suAptUp="sudo apt-get update"
+alias suAptUpdt="sudo apt-get update"
 alias suAptIns="sudo apt-get install"
 alias suAptRm="sudo apt-get remove"
 alias suAptUpg="sudo apt-get upgrade"
