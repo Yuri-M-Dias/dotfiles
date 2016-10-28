@@ -4,7 +4,6 @@
 [user]
 	name = "Yuri-M-Dias"
 	email = "yurimathe.yp@gmail.com"
-
 [alias]
 	prettyTree = log --pretty=oneline --graph --decorate --all
 [credential]

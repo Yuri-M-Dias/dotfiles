@@ -88,6 +88,7 @@ alias gchpk="git cherry-pick"
 alias gplom="git pull origin master"
 
 alias gfo="git fetch origin"
+alias gfop="git fetch origin --prune"
 alias gclo="git clone"
 
 # Since git doesn't seem to provide a profiling alternative...
