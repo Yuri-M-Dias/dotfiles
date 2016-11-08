@@ -32,6 +32,12 @@ alias histmerge='history --merge'
 alias reloadConfig='source ~/.config/fish/config.fish'
 
 ################################
+###  Ubuntu-related shortcuts
+################################
+# Resets the network manager, sometimes makes the connection works
+alias resetNetwork="sudo service network-manager restart"
+
+################################
 ###  File ShortCut
 ################################
 alias g="git"
