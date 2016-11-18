@@ -31,6 +31,9 @@ alias getclip='xclip -selection clipboard -o'
 alias histmerge='history --merge'
 alias reloadConfig='source ~/.config/fish/config.fish'
 
+# Execute a bash alias
+alias executeBash='bash -l -i -c'
+
 ################################
 ###  Ubuntu-related shortcuts
 ################################
