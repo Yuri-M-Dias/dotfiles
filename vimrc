@@ -110,11 +110,13 @@ nnoremap <F5> :UndotreeToggle<cr>
 map Q gq
 " Easier saving
 nnoremap <leader>s :w<CR>
+" Even easier saving
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>i
 " Force saving
 nnoremap <leader>f :wq<CR>
 nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader>r :so $MYVIMRC<CR>
-
 " done with it
 nnoremap <LEADER>d :w<CR>:bd<CR>
 " forget about it
