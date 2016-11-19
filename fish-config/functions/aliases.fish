@@ -94,8 +94,9 @@ alias gba="git branch -a"
 alias gchob="git checkout -b"
 alias gcho="git checkout"
 alias gchpk="git cherry-pick"
+#From Remote
 alias gplom="git pull origin master"
-
+alias gplr="git pull --rebase"
 alias gfo="git fetch origin"
 alias gfop="git fetch origin --prune"
 alias gclo="git clone"
