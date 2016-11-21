@@ -131,3 +131,7 @@ alias @gratsaf="grails test-app -functional"
 # Plugin only? Really necessary anymore?
 alias @grafts="grails functional-tests"
 
+#####
+# Docker-related: @do
+#####
+alias @doifip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
