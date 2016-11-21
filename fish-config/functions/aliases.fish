@@ -134,4 +134,8 @@ alias @grafts="grails functional-tests"
 #####
 # Docker-related: @do
 #####
+alias @dov="docker version"
+alias @doi="docker info"
 alias @doifip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
+alias @dopsa="docker ps -a"
+alias @dolgf="docker log -f"
