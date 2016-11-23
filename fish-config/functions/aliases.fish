@@ -29,6 +29,7 @@ alias getclip='xclip -selection clipboard -o'
 
 # Merge fish history
 alias histmerge='history --merge'
+# Reloads fish config
 alias reloadConfig='source ~/.config/fish/config.fish'
 
 # Execute a bash alias
@@ -105,7 +106,7 @@ alias gclo="git clone"
 alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"
 
 #####
-# Grails and Groovy shortcuts
+# Grails and Groovy shortcuts: @gra
 #####
 alias @gracl="grails clean"
 alias @gracmp="grails compile"
