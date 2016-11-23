@@ -89,8 +89,10 @@ alias grh="git reset --hard"
 alias grHEAD="git reset HEAD"
 #Branch
 alias gb="git branch"
-alias gbd="git branch -D"
+alias gbd="git branch -d"
 alias gba="git branch -a"
+# Deletes local branches that have been already merged into master
+alias gbcleanLocal="git branch --merged master | grep -v 'master$' | xargs git branch -d"
 #Checkout
 alias gchob="git checkout -b"
 alias gcho="git checkout"
