@@ -48,6 +48,8 @@ Plugin 'jalvesaq/Nvim-R'
 Plugin 'mattn/emmet-vim'
 " Fancy start screen
 Plugin 'mhinz/vim-startify'
+" Dockerfile support
+Plugin 'ekalinin/Dockerfile.vim'
 
 " Color themes
 Plugin 'altercation/vim-colors-solarized'
