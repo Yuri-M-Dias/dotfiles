@@ -32,6 +32,9 @@ alias histmerge='history --merge'
 # Reloads fish config
 alias reloadConfig='source ~/.config/fish/config.fish'
 
+# Check current directoy and subdirectories sizes
+alias checkPWDSize='du -ah . | grep -v "/\$" | sort -rh'
+
 # Execute a bash alias
 alias executeBash='bash -l -i -c'
 
