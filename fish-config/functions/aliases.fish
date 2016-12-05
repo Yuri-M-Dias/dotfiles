@@ -5,7 +5,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias -="cd -"
 
-alias la="ls -Gla"
+alias la="ls -Glah"
 # List only directories
 alias lsd='ls -la | grep "^d"'
 alias ll='ls -ahlF'
@@ -141,10 +141,10 @@ alias @grafts="grails functional-tests"
 # Docker-related: @do
 #####
 alias @do="docker"
-alias @dov="docker version"
-alias @doi="docker info"
-alias @doifip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
-alias @dopsa="docker ps -a"
-alias @dolgf="docker log -f"
-alias @doimgs="docker images"
-alias @dopll="docker pull"
+alias @dov="@do version"
+alias @doi="@do info"
+alias @doifip="@do inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
+alias @dopsa="@do ps -a"
+alias @dolgf="@do log -f"
+alias @doimgs="@do images"
+alias @dopll="@do pull"
