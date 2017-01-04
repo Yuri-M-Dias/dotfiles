@@ -82,8 +82,8 @@ alias glsa="git log --stat --all"
 alias glp="git log -p"
 alias glpt="git prettytree"
 #Merge
-alias gm="git merge --no-ff"
-alias gpt="git push --tags"
+alias gmnff="git merge --no-ff"
+alias gptg="git push --tags"
 alias gp="git push"
 # Pushes only the current branch
 alias gpuoh="git push origin HEAD"
