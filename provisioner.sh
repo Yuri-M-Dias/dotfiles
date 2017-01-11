@@ -1,15 +1,13 @@
 #!/bin/sh
 
-echo 'Adding necessary repositories'
-#sudo apt-add-repository ppa:fish-shell/release-2
-
-echo 'Updating and installing packages'
-sudo apt-get update
-sudo apt-get install gcc gfortran g++ curl fish \
-	#xorg-dev libreadline-dev \
-	wget -y
+set -e
 
 # Docker
+#TODO: make this better. Terrible way of doing it
+echo 'Installing Docker'
+wget -qO- https://get.docker.com/ | sh
+sudo usermod -aG docker <username> && sudo service docker start
+#newgrp docker
 
 # Vagrant
 
@@ -48,7 +46,3 @@ R CMD INSTALL colorout
 #make
 #cd -
 
-echo 'Installing Docker'
-wget -qO- https://get.docker.com/ | sh
-sudo usermod -aG docker <username> && sudo service docker start
-#newgrp docker

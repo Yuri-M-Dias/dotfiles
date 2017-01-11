@@ -1,11 +1,20 @@
 #!/bin/sh
+# Updated to work with Ubuntu 16.04 and kernel 4.4.x
+
+#TODO: activate sudo? Ask for sudo!
+
+echo 'Adding necessary repositories'
+sudo apt-add-repository ppa:fish-shell/release-2
 
 echo 'Installing dependencies'
 sudo apt-get update
-sudo apt-get install cmake python2.7-dev python3.4-dev zsh silversearcher-ag \
-                     exuberant-ctags libevent-dev markdown vim vim-nox \
-                     autotools-dev automake ncurses-dev clang-3.5 \
-                     clang-format-3.5 -y
+#TODO: separate the libs/tools/programming languages here
+sudo apt-get install \
+	python2.7-dev python3.5-dev zsh silversearcher-ag \
+	libevent-dev markdown vim vim-nox \
+	gcc gfortran g++ curl fish wget \
+	autotools-dev automake ncurses-dev \
+	clang-3.5 cmake clang-format-3.5 exuberant-ctags -y
 
 echo 'Update tmux, compiling from source'
 git clone https://github.com/tmux/tmux/
@@ -32,6 +41,7 @@ mkdir -p ~/.vim/backup/
 mkdir -p ~/.vim/swap/
 mkdir -p ~/.vim/undo/
 
+#TODO: upgrade to plug for delicious multi-threading
 echo 'Installing vundle'
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
@@ -46,24 +56,24 @@ ln -sfn `pwd`/ideavimrc ~/.ideavimrc
 #Fish configuration
 # TODO: symlink the entire repository
 ln -sfn `pwd`/fish-config/functions/aliases.fish ~/.config/fish/aliases.fish
-ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsiWarning.fish 
+ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsiWarning.fish
 # TODO: OMF config, themes and plugins?
-#Backup the current one
+# Backup the current one
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn `pwd`/fish-config/config.fish ~/.config/fish/config.fish
-ln -sfn `pwd`/Rprofile ~/.Rprofile 
+ln -sfn `pwd`/Rprofile ~/.Rprofile
 
 #Installs Vim-gitgutter, because not on Vundle
+#TODO: remove this ugly bullshit
 echo 'Installing Vim-gitgutter'
 cd /tmp && git clone git://github.com/airblade/vim-gitgutter.git
 cp -r vim-gitgutter/* ~/.vim
 cd -
 
-#Installs standalone vim-groovy identation
-#echo 'Installing vim-groovy'
-#cd /tmp && https://github.com/vim-scripts/groovyindent-unix.git
-#cp 
-
 echo 'Installing vim plugins'
 vim +PluginInstall +qall
 
+# Symlinks nvim
+mkdir ~/.config
+ln -s ~/.vim ~/.config/nvim
+ln -s `pwd`/vimrc ~/.config/nvim/init.vim
