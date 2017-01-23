@@ -1,20 +1,25 @@
 #!/bin/sh
 # Updated to work with Ubuntu 16.04 and kernel 4.4.x
+#TODO: this file is a clusterfuck. Use functions, for Stallman's sake!
 
+set -e
 #TODO: activate sudo? Ask for sudo!
 
 echo 'Adding necessary repositories'
-sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-add-repository ppa:fish-shell/release-2 -y
+sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
 echo 'Installing dependencies'
-sudo apt-get update
+sudo apt-get update -y
 #TODO: separate the libs/tools/programming languages here
 sudo apt-get install \
 	python2.7-dev python3.5-dev zsh silversearcher-ag \
 	libevent-dev markdown vim vim-nox \
 	gcc gfortran g++ curl fish wget \
 	autotools-dev automake ncurses-dev \
-	clang-3.5 cmake clang-format-3.5 exuberant-ctags -y
+	clang-3.5 cmake clang-format-3.5 exuberant-ctags \
+	python-setuptools python3-setuptools neovim \
+	-y --verbose-versions
 
 echo 'Update tmux, compiling from source'
 git clone https://github.com/tmux/tmux/
@@ -54,6 +59,9 @@ ln -sfn `pwd`/bash_aliases ~/.bash_aliases
 ln -sfn `pwd`/ideavimrc ~/.ideavimrc
 
 #Fish configuration
+echo 'Creating fish folders'
+mkdir -p ~/.config/fish/
+mkdir -p ~/.config/fish/functions/
 # TODO: symlink the entire repository
 ln -sfn `pwd`/fish-config/functions/aliases.fish ~/.config/fish/aliases.fish
 ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsiWarning.fish
@@ -61,6 +69,9 @@ ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsi
 # Backup the current one
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn `pwd`/fish-config/config.fish ~/.config/fish/config.fish
+#TODO: symlink OMF_CONFIG folder
+
+echo 'Linking R profile'
 ln -sfn `pwd`/Rprofile ~/.Rprofile
 
 #Installs Vim-gitgutter, because not on Vundle
@@ -77,3 +88,7 @@ vim +PluginInstall +qall
 mkdir ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s `pwd`/vimrc ~/.config/nvim/init.vim
+
+echo 'Cleaning up...'
+rm -Rf fonts/
+rm -Rf tmux/

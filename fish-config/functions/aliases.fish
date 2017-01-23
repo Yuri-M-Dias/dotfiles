@@ -148,3 +148,8 @@ alias @dopsa="@do ps -a"
 alias @dolgf="@do log -f"
 alias @doimgs="@do images"
 alias @dopll="@do pull"
+
+################################
+###  My common files shortcuts
+################################
+alias @dev="cd ~/Dev"

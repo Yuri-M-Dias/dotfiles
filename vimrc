@@ -60,10 +60,21 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Nvim-specific options
+if !has('nvim')
+	set ttymouse=xterm2
+	set term=screen-256color
+endif
+
+" Things that nvim removed
+if has('nvim')
+	" tnoremap <Esc> <C-\><C-n>
+	set termguicolors
+endif
+ 
 " All sets and specific configuration should go here
 set shell=/bin/bash
 set t_Co=256
-set term=screen-256color
 syntax enable
 syntax on
 set background=dark
