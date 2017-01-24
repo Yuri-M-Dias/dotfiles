@@ -21,7 +21,7 @@ alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.c
 alias scanOpenPorts="nmap -sT -p-"
 
 # Force tmux to use 256 colors
-alias tmux='tmux -2'
+#alias tmux='tmux -2'
 
 # Easier clipboard on unix
 alias setclip='xclip -selection c'

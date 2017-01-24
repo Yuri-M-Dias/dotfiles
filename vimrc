@@ -69,6 +69,7 @@ endif
 " Things that nvim removed
 if has('nvim')
 	" tnoremap <Esc> <C-\><C-n>
+	" Enable truecolors
 	set termguicolors
 endif
  
