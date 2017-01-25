@@ -60,17 +60,18 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Nvim-specific options
+" Things that nvim removed
 if !has('nvim')
 	set ttymouse=xterm2
 	set term=screen-256color
 endif
 
-" Things that nvim removed
+" Nvim-specific options
 if has('nvim')
 	" tnoremap <Esc> <C-\><C-n>
 	" Enable truecolors
 	set termguicolors
+	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 endif
  
 " All sets and specific configuration should go here
