@@ -2,11 +2,15 @@
 
 set -e
 
+# Shell helpers
+echo 'Installing oh-my-fish'
+curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+
 # Docker
 #TODO: make this better. Terrible way of doing it
-echo 'Installing Docker'
-wget -qO- https://get.docker.com/ | sh
-sudo usermod -aG docker <username> && sudo service docker start
+#echo 'Installing Docker'
+#wget -qO- https://get.docker.com/ | sh
+#sudo usermod -aG docker <username> && sudo service docker start
 #newgrp docker
 
 # Vagrant
@@ -23,15 +27,13 @@ curl -sSL https://get.rvm.io | bash -s stable --rails
 echo 'Installing NVM'
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 
-#echo 'Installing MongoDB'
+echo 'Installing SDKMAN'
+curl -s "https://get.sdkman.io" | bash
 
-echo 'Installing oh-my-fish'
-curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
-
-echo "Installing R package and dependencies"
-cd tmp
-git clone https://github.com/jalvesaq/colorout.git
-R CMD INSTALL colorout
+#echo "Installing R package and dependencies"
+#cd tmp
+#git clone https://github.com/jalvesaq/colorout.git
+#R CMD INSTALL colorout
 #TODO: install devtools?
 #R CMD INSTALL devtools
 
@@ -46,3 +48,4 @@ R CMD INSTALL colorout
 #make
 #cd -
 
+#echo 'Installing MongoDB'
