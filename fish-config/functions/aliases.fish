@@ -11,11 +11,13 @@ alias lsd='ls -la | grep "^d"'
 alias ll='ls -ahlF'
 alias l='ls -CF'
 
-# TODO: make sudo optional?
-alias suAptUpdt="sudo apt-get update"
-alias suAptIns="sudo apt-get install"
-alias suAptRm="sudo apt-get remove"
-alias suAptUpg="sudo apt-get upgrade"
+alias apt="sudo apt"
+alias aptU="apt update"
+alias aptI="apt install"
+alias aptRm="apt remove"
+alias aptUpg="apt upgrade"
+alias aptLs="apt list"
+alias aptLsUp="aptLs --upgradable"
 
 alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.com'
 alias scanOpenPorts="nmap -sT -p-"
@@ -37,6 +39,9 @@ alias checkPWDSize='du -ah . | grep -v "/\$" | sort -rh'
 
 # Execute a bash alias
 alias executeBash='bash -l -i -c'
+
+# Easier downloading stuff on the internet
+alias wgetNM='wget -mN'
 
 ################################
 ###  Ubuntu-related shortcuts
