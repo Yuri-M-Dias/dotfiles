@@ -43,6 +43,8 @@ alias executeBash='bash -l -i -c'
 # Easier downloading stuff on the internet
 alias wgetNM='wget -mN'
 
+alias dropLinuxCache='su - root --command " sync; echo 1 > /proc/sys/vm/drop_caches"'
+
 ################################
 ###  Ubuntu-related shortcuts
 ################################

@@ -28,7 +28,7 @@ Plugin 'mbbill/undotree'
 " Adds api blueprint support and syntax
 Plugin 'kylef/apiblueprint.vim'
 " Installs syntastic
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 " Fish files syntax highlight
 Plugin 'dag/vim-fish'
 " Easymotion, for vimium-like finding
@@ -50,6 +50,16 @@ Plugin 'mattn/emmet-vim'
 Plugin 'mhinz/vim-startify'
 " Dockerfile support
 Plugin 'ekalinin/Dockerfile.vim'
+" Neomake instead of Syntastic
+Plugin 'neomake/neomake'
+Plugin 'ryanoasis/vim-devicons'
+" Famous NERD tree
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Adds comments!
+Plugin 'scrooloose/nerdcommenter'
+" Haskell support
+Plugin 'neovimhaskell/haskell-vim'
 
 " Color themes
 Plugin 'altercation/vim-colors-solarized'
@@ -59,6 +69,9 @@ Plugin 'flazz/vim-colorschemes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+"""""""""CONFIGURATION SECTION"""""""""""""""
+" All sets and specific configuration should go here
 
 " Things that nvim removed
 if !has('nvim')
@@ -73,8 +86,10 @@ if has('nvim')
 	set termguicolors
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 endif
- 
-" All sets and specific configuration should go here
+
+set encoding=utf8
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
+
 set shell=/bin/bash
 set t_Co=256
 syntax enable
@@ -119,8 +134,9 @@ let g:R_applescript = 0
 let g:R_tmux_split = 1
 colorscheme molokai
 
-" Keys remapping should go here "
-nnoremap <F5> :UndotreeToggle<cr>
+""""""""""""""""" Keys remapping should go here """""""""""""""""
+nnoremap <F6> :UndotreeToggle<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " Easier saving
