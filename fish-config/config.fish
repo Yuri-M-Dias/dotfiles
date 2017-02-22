@@ -9,3 +9,6 @@ set -q XDG_DATA_HOME
 # Load oh-my-fish configuration.
 source $OMF_PATH/init.fish
 source ~/.config/fish/aliases.fish
+
+# sdkman
+#test -s "$HOME/.sdkman/bin/sdkman-init.sh"; and sdk help > /dev/null ^ /dev/null

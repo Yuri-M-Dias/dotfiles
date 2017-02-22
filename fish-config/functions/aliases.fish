@@ -159,4 +159,6 @@ alias @dopll="@do pull"
 ################################
 ###  My common files shortcuts
 ################################
+#TODO: make these into some sort of ambient variable
 alias @dev="cd ~/Dev"
+alias @dot="cd ~/dotfiles"

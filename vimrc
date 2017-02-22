@@ -60,6 +60,10 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/nerdcommenter'
 " Haskell support
 Plugin 'neovimhaskell/haskell-vim'
+" Intero-haskell
+Plugin 'myfreeweb/intero.nvim'
+" Better session handling
+"Plugin 'tpope/vim-obsession'
 
 " Color themes
 Plugin 'altercation/vim-colors-solarized'
@@ -81,7 +85,6 @@ endif
 
 " Nvim-specific options
 if has('nvim')
-	" tnoremap <Esc> <C-\><C-n>
 	" Enable truecolors
 	set termguicolors
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
@@ -123,22 +126,31 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
+
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
+"
+" Some R plugins options
 "let vimrplugin_applescript=0
 "let vimrplugin_vsplit=1
+"
 "let R_esc_term = 0
 "let R_close_term = 0
 "let R_in_buffer = 0
 let g:R_in_buffer = 0
 let g:R_applescript = 0
 let g:R_tmux_split = 1
+
+" Startify sessions configurations
+let g:startify_session_autoload = 0
+let g:startify_session_persistence = 0
+let g:startify_session_sort = 0
 colorscheme molokai
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
 nnoremap <F6> :UndotreeToggle<CR>
 nnoremap <F5> :NERDTreeToggle<CR>
 " Don't use Ex mode, use Q for formatting
-map Q gq
+nnoremap Q <Esc>gg=G<Esc>
 " Easier saving
 nnoremap <leader>s :w<CR>
 " Even easier saving
