@@ -45,6 +45,8 @@ alias wgetNM='wget -mN'
 
 alias dropLinuxCache='su - root --command " sync; echo 1 > /proc/sys/vm/drop_caches"'
 
+alias isTheInternetOnFire='dig +short -t txt istheinternetonfire.com'
+
 ################################
 ###  Ubuntu-related shortcuts
 ################################
