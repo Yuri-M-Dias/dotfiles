@@ -64,6 +64,7 @@ Plugin 'neovimhaskell/haskell-vim'
 Plugin 'myfreeweb/intero.nvim'
 " Better session handling
 "Plugin 'tpope/vim-obsession'
+Plugin 'lervag/vimtex'
 
 " Color themes
 Plugin 'altercation/vim-colors-solarized'
