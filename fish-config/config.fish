@@ -10,5 +10,7 @@ set -q XDG_DATA_HOME
 source $OMF_PATH/init.fish
 source ~/.config/fish/aliases.fish
 
+eval (python -m virtualfish)
+
 # sdkman
 #test -s "$HOME/.sdkman/bin/sdkman-init.sh"; and sdk help > /dev/null ^ /dev/null
