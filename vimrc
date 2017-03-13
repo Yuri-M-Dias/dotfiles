@@ -71,6 +71,11 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
 
+if has('nvim')
+	Plugin 'Shougo/deoplete.nvim'
+	Plugin 'carlitux/deoplete-ternjs'
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -89,6 +94,11 @@ if has('nvim')
 	" Enable truecolors
 	set termguicolors
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+	let g:deoplete#enable_at_startup = 1
+	" Use deoplete.
+	let g:tern_request_timeout = 1
+	let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+
 endif
 
 set encoding=utf8
