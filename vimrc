@@ -6,8 +6,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
 endif
 
-set nocompatible              " be iMproved
-
 " Vim-plug configuration
 call plug#begin('~/.vim/plugged')
 
@@ -84,9 +82,18 @@ Plug 'heavenshell/vim-jsdoc'
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-	Plug 'ponko2/deoplete-fish'
+	Plug 'ponko2/deoplete-fish', { 'for': ['fish'] }
 	Plug 'Shougo/neco-vim'
 	Plug 'eagletmt/neco-ghc'
+	Plug 'wellle/tmux-complete.vim'
+	Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'rb'] }
+	Plug 'ujihisa/neco-look'
+	Plug 'zchee/deoplete-jedi'
+	Plug 'Shougo/neopairs.vim'
+	Plug 'Shougo/context_filetype.vim'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug 'Shougo/echodoc.vim'
 endif
 
 call plug#end()
@@ -96,6 +103,7 @@ call plug#end()
 
 " Things that nvim removed
 if !has('nvim')
+	set nocompatible              " be iMproved
 	set ttymouse=xterm2
 	set term=screen-256color
 endif
@@ -113,12 +121,23 @@ if has('nvim')
 	" Use deoplete.
 	let g:tern_request_timeout = 1
 	let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+	" Make ternjs close automatically
+	autocmd CompleteDone * pclose!
+	"Add extra filetypes
+	let g:tern#filetypes = [
+				\ 'jsx',
+				\ 'javascript.jsx',
+				\ 'vue',
+				\ 'javascript'
+				\ ]
+	" Tmuxcomplete use deoplete
+	let g:tmuxcomplete#trigger = ''
+	silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+
 	" Necessary for deoplete and other python plugins
 	" Quite bad how this is necessary, but it's here.
 	let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
 	let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
-	" Make ternjs close automatically
-	autocmd CompleteDone * pclose!
 endif
 
 set encoding=utf8
@@ -182,6 +201,9 @@ let g:startify_session_before_save = [
 			\ 'echo "Cleaning up before saving.."',
 			\ 'silent! NERDTreeTabsClose'
 			\ ]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 colorscheme molokai
 
