@@ -1,0 +1,10 @@
+package android-sdk
+package foreign-env
+package nvm
+package pyenv
+package python
+package rails
+package rvm
+package virtualfish
+theme bobthefish
+theme default

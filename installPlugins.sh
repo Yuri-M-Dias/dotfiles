@@ -68,6 +68,7 @@ ln -sfn `pwd`/fish-config/aliases.fish ~/.config/fish/aliases.fish
 # Backup the current one
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn `pwd`/fish-config/config.fish ~/.config/fish/config.fish
+ln -sfn `pwd`/omf/ ~/.config/omf
 
 echo 'Linking R profile'
 ln -sfn `pwd`/Rprofile ~/.Rprofile
