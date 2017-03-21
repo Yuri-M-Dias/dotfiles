@@ -3,7 +3,9 @@
 ################################
 alias ..="cd .."
 alias ...="cd ../.."
-alias -="cd -"
+# https://github.com/fish-shell/fish-shell/issues/3810
+#alias -="cd -"
+abbr -a -- - 'cd -'
 
 alias la="ls -Glah"
 # List only directories

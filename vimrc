@@ -115,8 +115,8 @@ if has('nvim')
 	let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 	" Necessary for deoplete and other python plugins
 	" Quite bad how this is necessary, but it's here.
-	"let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
-	"let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
+	let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
+	let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
 	" Make ternjs close automatically
 	autocmd CompleteDone * pclose!
 endif

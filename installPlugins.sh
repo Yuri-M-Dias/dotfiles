@@ -3,7 +3,7 @@
 #TODO: this file is a clusterfuck. Use functions, for Stallman's sake!
 
 set -e
-#TODO: activate sudo? Ask for sudo!
+sudo -v
 
 echo 'Adding necessary repositories'
 sudo apt-add-repository ppa:fish-shell/release-2 -y
@@ -41,6 +41,7 @@ cd -
 #TODO: finish using a single font
 #curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
 
+# May not be necessary anymore
 echo 'Creating vim folders'
 mkdir -p ~/.vim
 mkdir -p ~/.vim/bundle
@@ -48,10 +49,6 @@ mkdir -p ~/.vim/colors
 mkdir -p ~/.vim/backup/
 mkdir -p ~/.vim/swap/
 mkdir -p ~/.vim/undo/
-
-#TODO: upgrade to plug for delicious multi-threading
-echo 'Installing vundle'
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo 'Creating links to config files'
 #ln -sfn `pwd`/zshenv ~/.zshenv
@@ -64,28 +61,19 @@ ln -sfn `pwd`/ideavimrc ~/.ideavimrc
 #Fish configuration
 echo 'Creating fish folders'
 mkdir -p ~/.config/fish/
-mkdir -p ~/.config/fish/functions/
-# TODO: symlink the entire repository
-ln -sfn `pwd`/fish-config/functions/aliases.fish ~/.config/fish/aliases.fish
-ln -sfn `pwd`/fish-config/functions/rsiWarning.fish ~/.config/fish/functions/rsiWarning.fish
+#mkdir -p ~/.config/fish/functions/
+ln -s `pwd`/fish-config/functions/ ~/.config/fish/functions
+ln -sfn `pwd`/fish-config/aliases.fish ~/.config/fish/aliases.fish
 # TODO: OMF config, themes and plugins?
 # Backup the current one
 mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn `pwd`/fish-config/config.fish ~/.config/fish/config.fish
-#TODO: symlink OMF_CONFIG folder
 
 echo 'Linking R profile'
 ln -sfn `pwd`/Rprofile ~/.Rprofile
 
-#Installs Vim-gitgutter, because not on Vundle
-#TODO: remove this ugly bullshit
-echo 'Installing Vim-gitgutter'
-cd /tmp && git clone git://github.com/airblade/vim-gitgutter.git
-cp -r vim-gitgutter/* ~/.vim
-cd -
-
 echo 'Installing vim plugins'
-vim +PluginInstall +qall
+nvim +PlugInstall
 
 # Symlinks nvim
 mkdir ~/.config
