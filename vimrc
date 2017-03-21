@@ -1,10 +1,9 @@
 " make plug auto-install
-if !isdirectory($HOME.'/.vim/autoload')
-  silent !mkdir -p ~/.vim/autoload
-  silent !curl -fLo ~/.vim/autoload/plug.vim
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-  silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
 endif
 
 set nocompatible              " be iMproved
@@ -12,8 +11,9 @@ set nocompatible              " be iMproved
 " Vim-plug configuration
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-"Plug 'VundleVim/Vundle.vim'
+" Git utilities
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " Better integration with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Snippets for the win
@@ -77,19 +77,19 @@ Plug 'lervag/vimtex'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'flazz/vim-colorschemes'
+" jsdoc
+Plug 'othree/jsdoc-syntax.vim'
+Plug 'heavenshell/vim-jsdoc'
 
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim'
-	Plug 'carlitux/deoplete-ternjs'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 	Plug 'ponko2/deoplete-fish'
 	Plug 'Shougo/neco-vim'
 	Plug 'eagletmt/neco-ghc'
 endif
 
 call plug#end()
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
-filetype plugin indent on    " required
 
 """""""""CONFIGURATION SECTION"""""""""""""""
 " All sets and specific configuration should go here
@@ -106,9 +106,14 @@ if has('nvim')
 	set termguicolors
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 	let g:deoplete#enable_at_startup = 1
+	let g:deoplete#max_list=20
+	let g:deoplete#auto_complete_delay=0
+	let g:deoplete#file#enable_buffer_path=1
+	let g:deoplete#enable_smart_case=1
 	" Use deoplete.
 	let g:tern_request_timeout = 1
 	let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+	" Necessary for deoplete and other python plugins
 	" Quite bad how this is necessary, but it's here.
 	"let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
 	"let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
@@ -146,6 +151,7 @@ set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 set tabstop=4 shiftwidth=4 sts=4 noet
 "set fileformats=unix
 set mouse=a
+set showcmd
 
 " Plugin configurations
 let g:airline_powerline_fonts=1
@@ -167,9 +173,16 @@ let g:R_applescript = 0
 let g:R_tmux_split = 1
 
 " Startify sessions configurations
-let g:startify_session_autoload = 0
-let g:startify_session_persistence = 0
-let g:startify_session_sort = 0
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
+let g:startify_session_sort = 1
+let g:startify_use_env = 1
+let g:startify_fortune_use_unicode = 1
+let g:startify_session_before_save = [
+			\ 'echo "Cleaning up before saving.."',
+			\ 'silent! NERDTreeTabsClose'
+			\ ]
+
 colorscheme molokai
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
@@ -228,5 +241,12 @@ autocmd BufNewFile,BufRead *.fish set ft=fish
 autocmd FileType python setlocal et
 
 " Custom command customizations
-"command! Foo :echo "Hello"
+" I stole these from @joaumg
+" Awesome commands
+" http://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
+command! RemoveTrailingWhitespaces :bufdo %s/\s\+$//e
+" Save files with sudo
+command! SaveAsRoot :w !sudo tee > /dev/null %
+" Last revision
+command! LastRevision :r !git show HEAD^1:%
 
