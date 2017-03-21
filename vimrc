@@ -1,83 +1,94 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" Better integration with tmux
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-" Snippets for the win
-Plugin 'SirVer/ultisnips'
-" Snippets
-Plugin 'honza/vim-snippets'
-" let us have a pattern of styles ( spaces, eol, charset, others... )
-Plugin 'editorconfig/editorconfig-vim'
-" Adds airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Markdown syntax highlighting
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-" Improved search highlight
-Plugin 'timakro/vim-searchant'
-" Adding a nice undo-tree
-Plugin 'mbbill/undotree'
-" Adds api blueprint support and syntax
-Plugin 'kylef/apiblueprint.vim'
-" Installs syntastic
-"Plugin 'scrooloose/syntastic'
-" Fish files syntax highlight
-Plugin 'dag/vim-fish'
-" Easymotion, for vimium-like finding
-Plugin 'easymotion/vim-easymotion'
-" SQL formatter and utils
-Plugin 'vim-scripts/SQLUtilities'
-" Align plugin
-Plugin 'vim-scripts/Align'
-" Syntax!
-Plugin 'sheerun/vim-polyglot'
-" Ctrlp fuzzy file search
-Plugin 'ctrlpvim/ctrlp.vim'
-" R support
-Plugin 'jalvesaq/Nvim-R'
-"Plugin 'vim-scripts/Vim-R-plugin'
-" emmet for fast html
-Plugin 'mattn/emmet-vim'
-" Fancy start screen
-Plugin 'mhinz/vim-startify'
-" Dockerfile support
-Plugin 'ekalinin/Dockerfile.vim'
-" Neomake instead of Syntastic
-Plugin 'neomake/neomake'
-Plugin 'ryanoasis/vim-devicons'
-" Famous NERD tree
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Adds comments!
-Plugin 'scrooloose/nerdcommenter'
-" Haskell support
-Plugin 'neovimhaskell/haskell-vim'
-" Intero-haskell
-Plugin 'myfreeweb/intero.nvim'
-" Better session handling
-"Plugin 'tpope/vim-obsession'
-Plugin 'lervag/vimtex'
-
-" Color themes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'flazz/vim-colorschemes'
-
-if has('nvim')
-	Plugin 'Shougo/deoplete.nvim'
-	Plugin 'carlitux/deoplete-ternjs'
+" make plug auto-install
+if !isdirectory($HOME.'/.vim/autoload')
+  silent !mkdir -p ~/.vim/autoload
+  silent !curl -fLo ~/.vim/autoload/plug.vim
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+  silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
 endif
 
+set nocompatible              " be iMproved
+
+" Vim-plug configuration
+call plug#begin('~/.vim/plugged')
+
+" let Vundle manage Vundle, required
+"Plug 'VundleVim/Vundle.vim'
+" Better integration with tmux
+Plug 'tmux-plugins/vim-tmux-focus-events'
+" Snippets for the win
+Plug 'SirVer/ultisnips'
+" Snippets
+Plug 'honza/vim-snippets'
+" let us have a pattern of styles ( spaces, eol, charset, others... )
+Plug 'editorconfig/editorconfig-vim'
+" Adds airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Markdown syntax highlighting
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+" Improved search highlight
+Plug 'timakro/vim-searchant'
+" Adding a nice undo-tree
+Plug 'mbbill/undotree'
+" Adds api blueprint support and syntax
+Plug 'kylef/apiblueprint.vim'
+" Installs syntastic
+"Plug 'scrooloose/syntastic'
+" Fish files syntax highlight
+Plug 'dag/vim-fish'
+" Easymotion, for vimium-like finding
+Plug 'easymotion/vim-easymotion'
+" SQL formatter and utils
+Plug 'vim-scripts/SQLUtilities'
+" Align plugin
+Plug 'vim-scripts/Align'
+" Syntax!
+Plug 'sheerun/vim-polyglot'
+" Ctrlp fuzzy file search
+Plug 'ctrlpvim/ctrlp.vim'
+" R support
+Plug 'jalvesaq/Nvim-R'
+"Plug 'vim-scripts/Vim-R-plugin'
+" emmet for fast html
+Plug 'mattn/emmet-vim'
+" Fancy start screen
+Plug 'mhinz/vim-startify'
+" Dockerfile support
+Plug 'ekalinin/Dockerfile.vim'
+" Neomake instead of Syntastic
+Plug 'neomake/neomake'
+Plug 'ryanoasis/vim-devicons'
+" Famous NERD tree
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Adds comments!
+Plug 'scrooloose/nerdcommenter'
+" Haskell support
+Plug 'neovimhaskell/haskell-vim'
+" Intero-haskell
+"Plug 'myfreeweb/intero.nvim'
+" Better session handling
+"Plug 'tpope/vim-obsession'
+Plug 'lervag/vimtex'
+
+" Color themes
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'flazz/vim-colorschemes'
+
+if has('nvim')
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'carlitux/deoplete-ternjs'
+	Plug 'ponko2/deoplete-fish'
+	Plug 'Shougo/neco-vim'
+	Plug 'eagletmt/neco-ghc'
+endif
+
+call plug#end()
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 
 """""""""CONFIGURATION SECTION"""""""""""""""
@@ -98,7 +109,11 @@ if has('nvim')
 	" Use deoplete.
 	let g:tern_request_timeout = 1
 	let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-
+	" Quite bad how this is necessary, but it's here.
+	"let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
+	"let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
+	" Make ternjs close automatically
+	autocmd CompleteDone * pclose!
 endif
 
 set encoding=utf8
