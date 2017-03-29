@@ -1,8 +1,10 @@
-
 set number
 set relativenumber
 set showmode
 set incsearch
+
+" vim-surround emulation
+set surround
 
 " Enter the command-line mode
 nnoremap <CR> :
