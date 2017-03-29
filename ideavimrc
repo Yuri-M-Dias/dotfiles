@@ -8,8 +8,10 @@ set surround
 
 " Enter the command-line mode
 nnoremap <CR> :
+" C-s unchanged
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
 " Reload .ideavimrc
 nnoremap <space>r :source ~/.ideavimrc<CR>
-"inoremap jj <esc>
+" Easier shortcut reformating
+nnoremap \r :action ReformatCode<CR>
