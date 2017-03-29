@@ -78,6 +78,8 @@ Plug 'flazz/vim-colorschemes'
 " jsdoc
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'heavenshell/vim-jsdoc'
+" Surround
+Plug 'tpope/vim-surround'
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
