@@ -203,9 +203,30 @@ let g:startify_session_before_save = [
 			\ 'echo "Cleaning up before saving.."',
 			\ 'silent! NERDTreeTabsClose'
 			\ ]
+
+" UltiSnips configuration
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" NERDTree configuration
+let NERDTreeShowHidden=1
+
+" Neomake configuration
+let g:neomake_javascript_jscs_maker = {
+			\ 'exe': 'jscs',
+			\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
+			\ 'errorformat': '%f: line %l\, col %c\, %m',
+			\ }
+let g:neomake_javascript_enabled_makers = ['jscs']
+let g:neomake_warning_sign = {
+			\ 'text': 'W',
+			\ 'texthl': 'WarningMsg',
+			\ }
+let g:neomake_error_sign = {
+			\ 'text': 'E',
+			\ 'texthl': 'ErrorMsg',
+			\ }
 
 colorscheme molokai
 
@@ -263,6 +284,9 @@ autocmd BufNewFile,BufRead *.fish set ft=fish
 "autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
 "autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd FileType python setlocal et
+
+" Triggers neomake
+autocmd! BufWritePost,BufEnter * Neomake
 
 " Custom command customizations
 " I stole these from @joaumg
