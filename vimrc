@@ -213,18 +213,19 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let NERDTreeShowHidden=1
 
 " Neomake configuration
-let g:neomake_javascript_jscs_maker = {
-			\ 'exe': 'jscs',
-			\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
-			\ 'errorformat': '%f: line %l\, col %c\, %m',
-			\ }
-let g:neomake_javascript_enabled_makers = ['jscs']
+"let g:neomake_open_list = 2
+"let g:neomake_javascript_jscs_maker = {
+			"\ 'exe': 'jscs',
+			"\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
+			"\ 'errorformat': '%f: line %l\, col %c\, %m',
+			"\ }
+"let g:neomake_javascript_enabled_makers = ['jscs']
 let g:neomake_warning_sign = {
-			\ 'text': 'W',
+			\ 'text': '!',
 			\ 'texthl': 'WarningMsg',
 			\ }
 let g:neomake_error_sign = {
-			\ 'text': 'E',
+			\ 'text': '×',
 			\ 'texthl': 'ErrorMsg',
 			\ }
 
