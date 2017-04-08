@@ -14,4 +14,4 @@ inoremap <C-s> <ESC>:w<CR>
 " Reload .ideavimrc
 nnoremap <space>r :source ~/.ideavimrc<CR>
 " Easier shortcut reformating
-nnoremap \r :action ReformatCode<CR>
+nnoremap Q :action ReformatCode<CR>

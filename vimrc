@@ -203,6 +203,7 @@ let g:startify_session_before_save = [
 			\ 'echo "Cleaning up before saving.."',
 			\ 'silent! NERDTreeTabsClose'
 			\ ]
+let g:startify_custom_header = startify#fortune#boxed()
 
 " UltiSnips configuration
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -219,7 +220,7 @@ let NERDTreeShowHidden=1
 			"\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
 			"\ 'errorformat': '%f: line %l\, col %c\, %m',
 			"\ }
-"let g:neomake_javascript_enabled_makers = ['jscs']
+let g:neomake_javascript_enabled_makers = ['jscs']
 let g:neomake_warning_sign = {
 			\ 'text': '!',
 			\ 'texthl': 'WarningMsg',
