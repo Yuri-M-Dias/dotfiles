@@ -80,6 +80,7 @@ Plug 'othree/jsdoc-syntax.vim'
 Plug 'heavenshell/vim-jsdoc'
 " Surround
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -96,6 +97,7 @@ if has('nvim')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 	Plug 'Shougo/echodoc.vim'
+	Plug 'sbdchd/neoformat'
 endif
 
 call plug#end()
@@ -216,11 +218,11 @@ let NERDTreeShowHidden=1
 " Neomake configuration
 "let g:neomake_open_list = 2
 "let g:neomake_javascript_jscs_maker = {
-			"\ 'exe': 'jscs',
-			"\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
-			"\ 'errorformat': '%f: line %l\, col %c\, %m',
-			"\ }
-let g:neomake_javascript_enabled_makers = ['jscs']
+"\ 'exe': 'jscs',
+"\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
+"\ 'errorformat': '%f: line %l\, col %c\, %m',
+"\ }
+let g:neomake_javascript_enabled_makers = ['jscs', 'eslint']
 let g:neomake_warning_sign = {
 			\ 'text': '!',
 			\ 'texthl': 'WarningMsg',
@@ -230,13 +232,21 @@ let g:neomake_error_sign = {
 			\ 'texthl': 'ErrorMsg',
 			\ }
 
+" Neoformat configuration
+" Enable alignment
+let g:neoformat_basic_format_align = 1
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+" Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+
 colorscheme molokai
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
 nnoremap <F6> :UndotreeToggle<CR>
 nnoremap <F5> :NERDTreeToggle<CR>
-" Don't use Ex mode, use Q for formatting
-nnoremap Q <Esc>gg=G<Esc>
 " Easier saving
 nnoremap <leader>s :w<CR>
 " Even easier saving
@@ -279,6 +289,10 @@ nnoremap <LEADER><DOWN> ddp
 "vmap <Space> <Plug>RDSendSelection
 "nmap <Space> <Plug>RDSendLine
 
+" Don't use Ex mode, use Q for formatting
+"nnoremap Q <Esc>gg=G<Esc>
+nnoremap Q :Neoformat<CR>
+
 " Conditional key mappings: will work only for the files endings specified
 autocmd BufNewFile,BufRead *.apib nnoremap <leader>b :!apiary preview --output="api-docs.html"<CR>
 autocmd BufNewFile,BufRead *.jade set ft=pug
@@ -286,6 +300,9 @@ autocmd BufNewFile,BufRead *.fish set ft=fish
 "autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
 "autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
 autocmd FileType python setlocal et
+
+" Autoformat helper
+autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 
 " Triggers neomake
 autocmd! BufWritePost,BufEnter * Neomake

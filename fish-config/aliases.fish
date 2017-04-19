@@ -166,3 +166,6 @@ alias @dopll="@do pull"
 #TODO: make these into some sort of ambient variable
 alias @dev="cd ~/Dev"
 alias @dot="cd ~/dotfiles"
+
+# Easier to just remember how it works
+alias @nvimPlugInstall="nvim +PlugInstall +PlugClean +q"
