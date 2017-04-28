@@ -12,6 +12,8 @@ nnoremap <CR> :
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
 " Reload .ideavimrc
-nnoremap <space>r :source ~/.ideavimrc<CR>
+nnoremap <space>r :source ~/.ideavimrc<CR>:echo 'Reloaded'<CR>
 " Easier shortcut reformating
 nnoremap Q :action ReformatCode<CR>
+nnoremap <C-w> :action CloseEditor<CR>
+nnoremap <C-S-t> :action ReopenClosedTab<CR>
