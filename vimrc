@@ -81,6 +81,7 @@ Plug 'heavenshell/vim-jsdoc'
 " Surround
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'vimwiki/vimwiki'
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
