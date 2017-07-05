@@ -6,6 +6,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
 endif
 
+"OS verification
+if !exists("g:os")
+	if has("win64") || has("win32") || has("win16")
+		let g:os = "Windows"
+	else
+		let g:os = substitute(system('uname'), '\n', '', '')
+	endif
+endif
+
 " Vim-plug configuration
 call plug#begin('~/.vim/plugged')
 
@@ -141,12 +150,21 @@ if has('nvim')
 
 	" Necessary for deoplete and other python plugins
 	" Quite bad how this is necessary, but it's here.
-	let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
-	let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
+	if g:os == "Darwin"
+		let g:python_host_prog= '/Users/Usuario/.pyenv/versions/neovim2/bin/python'
+		let g:python3_host_prog= '/Users/Usuario/.pyenv/versions/neovim3/bin/python'
+	elseif g:os == "Linux"
+		let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
+		let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
+	endif
 endif
 
 set encoding=utf8
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
+if g:os == "Darwin"
+	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:13
+elseif g:os == "Linux"
+	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
+endif
 
 set shell=/bin/bash
 set t_Co=256
