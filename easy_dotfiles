@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+echo "Checking for git"
+git --version
+
+echo "Cloning dotfiles repo"
+cd ~
+git clone https://github.com/Yuri-M-Dias/dotfiles.git
+
+echo "Installing everything according to the OS"
+cd dotfiles
+#TODO: TODO!
+source ./installPlugins.sh
