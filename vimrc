@@ -6,7 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 	silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
 endif
 
-"OS verification
+" OS verification
 if !exists("g:os")
 	if has("win64") || has("win32") || has("win16")
 		let g:os = "Windows"
@@ -14,6 +14,9 @@ if !exists("g:os")
 		let g:os = substitute(system('uname'), '\n', '', '')
 	endif
 endif
+
+" Current user
+let g:current_user = $USER
 
 " Vim-plug configuration
 call plug#begin('~/.vim/plugged')
@@ -154,8 +157,8 @@ if has('nvim')
 		let g:python_host_prog= '/Users/Usuario/.pyenv/versions/neovim2/bin/python'
 		let g:python3_host_prog= '/Users/Usuario/.pyenv/versions/neovim3/bin/python'
 	elseif g:os == "Linux"
-		let g:python_host_prog = '/home/yuri/.pyenv/versions/neovim2/bin/python'
-		let g:python3_host_prog = '/home/yuri/.pyenv/versions/neovim3/bin/python'
+		let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
+		let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
 	endif
 endif
 

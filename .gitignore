@@ -1,1 +1,3 @@
 fish-config/functions/fish_prompt.fish
+fish-config/functions/fzf_key_bindings.fish
+fish-config/functions/fish_user_key_bindings.fish

@@ -5,7 +5,8 @@
 set -e
 sudo -v
 
-DOTPATH=$(pwd)
+echo "Executing symlinks"
+export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # May not be necessary anymore
 echo 'Creating vim folders'
@@ -17,33 +18,34 @@ mkdir -p ~/.vim/swap/
 mkdir -p ~/.vim/undo/
 
 echo 'Creating links to config files'
-#ln -sfn $DOTPATH/zshenv ~/.zshenv
-ln -sfn "$DOTPATH/vimrc" ~/.vimrc
-ln -sfn "$DOTPATH/tmux.conf" ~/.tmux.conf
-ln -sfn "$DOTPATH/gitconfig" ~/.gitconfig
-ln -sfn "$DOTPATH/bash_aliases" ~/.bash_aliases
-ln -sfn "$DOTPATH/ideavimrc" ~/.ideavimrc
+#ln -sfn $DOTFILES/zshenv ~/.zshenv
+ln -sfn "$DOTFILES/vimrc" ~/.vimrc
+ln -sfn "$DOTFILES/tmux.conf" ~/.tmux.conf
+ln -sfn "$DOTFILES/gitconfig" ~/.gitconfig
+ln -sfn "$DOTFILES/bash_aliases" ~/.bash_aliases
+ln -sfn "$DOTFILES/ideavimrc" ~/.ideavimrc
 
 #Fish configuration
 echo 'Creating fish folders'
 mkdir -p ~/.config/fish/
 #mkdir -p ~/.config/fish/functions/
-ln -s "$DOTPATH/fish-config/functions/" ~/.config/fish/functions
-ln -sfn "$DOTPATH/fish-config/aliases.fish" ~/.config/fish/aliases.fish
+ln -s "$DOTFILES/fish-config/functions" ~/.config/fish/functions
+ln -sfn "$DOTFILES/fish-config/aliases.fish" ~/.config/fish/aliases.fish
 # TODO: OMF config, themes and plugins?
 # Backup the current one
 #mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
-ln -sfn "$DOTPATH/fish-config/config.fish" ~/.config/fish/config.fish
-ln -sfn "$DOTPATH/omf/" ~/.config/omf
+ln -sfn "$DOTFILES/fish-config/config.fish" ~/.config/fish/config.fish
+ln -sfn "$DOTFILES/omf" ~/.config/omf
 
 echo 'Linking R profile'
-ln -sfn "$DOTPATH/Rprofile" ~/.Rprofile
+ln -sfn "$DOTFILES/Rprofile" ~/.Rprofile
 
 # Symlinks nvim
+echo "Symlinking Neovim"
 mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
-ln -s "$DOTPATH/vimrc" ~/.config/nvim/init.vim
+ln -s "$DOTFILES/vimrc" ~/.config/nvim/init.vim
 
 echo 'Installing vim plugins'
-nvim +PlugInstall
+nvim +PlugInstall +q +q
 
