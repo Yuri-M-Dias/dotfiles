@@ -18,3 +18,8 @@ status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
 # sdkman
 #test -s "$HOME/.sdkman/bin/sdkman-init.sh"; and sdk help > /dev/null ^ /dev/null
+#
+# Bobthefish configs
+#set -g theme_powerline_fonts no
+set -g theme_nerd_fonts yes
+
