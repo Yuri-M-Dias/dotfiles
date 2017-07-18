@@ -13,3 +13,5 @@ alias histg="history | grep"
 alias @src='source ~/.bashrc'
 alias @ta='tmux -2 attach'
 alias @tn='tmux -2 new -s'
+alias @tnd='tmux -2 new -s dev'
+alias @tk='tmux kill-session'
