@@ -94,6 +94,8 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
+" Eerlang runtime
+Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
