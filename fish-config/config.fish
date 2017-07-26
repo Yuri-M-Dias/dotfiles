@@ -13,8 +13,8 @@ source ~/.config/fish/aliases.fish
 eval (python -m virtualfish)
 
 #set -x PATH "/home/yuri/.pyenv/bin $PATH"
-status --is-interactive; and . (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
 
 # sdkman
 #test -s "$HOME/.sdkman/bin/sdkman-init.sh"; and sdk help > /dev/null ^ /dev/null
