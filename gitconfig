@@ -7,6 +7,9 @@
 	signingkey = DE197A9D3A09177A
 [alias]
 	prettyTree = log --pretty=oneline --graph --decorate --all
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 [credential]
 	helper = cache
 [push]
