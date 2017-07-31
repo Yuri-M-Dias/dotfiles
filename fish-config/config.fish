@@ -10,12 +10,6 @@
 #source $OMF_PATH/init.fish
 source ~/.config/fish/aliases.fish
 
-eval (python -m virtualfish)
-
-#set -x PATH "/home/yuri/.pyenv/bin $PATH"
-status --is-interactive; and source (pyenv init -|psub)
-status --is-interactive; and source (pyenv virtualenv-init -|psub)
-
 # sdkman
 #test -s "$HOME/.sdkman/bin/sdkman-init.sh"; and sdk help > /dev/null ^ /dev/null
 #
@@ -23,3 +17,8 @@ status --is-interactive; and source (pyenv virtualenv-init -|psub)
 #set -g theme_powerline_fonts no
 set -g theme_nerd_fonts yes
 
+eval (python -m virtualfish)
+
+#set -x PATH "/home/yuri/.pyenv/bin $PATH"
+status --is-interactive; and source (pyenv init - | psub)
+status --is-interactive; and source (pyenv virtualenv-init - | psub)
