@@ -1,5 +1,6 @@
 package android-sdk
 package foreign-env
+package fzf
 package nvm
 package pyenv
 package python
