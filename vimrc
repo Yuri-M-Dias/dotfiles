@@ -36,18 +36,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Markdown syntax highlighting
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular', {'for': ['markdown', 'md']}
+Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 " Improved search highlight
 Plug 'timakro/vim-searchant'
 " Adding a nice undo-tree
 Plug 'mbbill/undotree'
 " Adds api blueprint support and syntax
-Plug 'kylef/apiblueprint.vim'
+Plug 'kylef/apiblueprint.vim', {'for': ['apiblueprint']}
 " Installs syntastic
 "Plug 'scrooloose/syntastic'
 " Fish files syntax highlight
-Plug 'dag/vim-fish'
+Plug 'dag/vim-fish', {'for': ['fish']}
 " Easymotion, for vimium-like finding
 Plug 'easymotion/vim-easymotion'
 " SQL formatter and utils
@@ -59,14 +59,14 @@ Plug 'sheerun/vim-polyglot'
 " Ctrlp fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 " R support
-Plug 'jalvesaq/Nvim-R'
+Plug 'jalvesaq/Nvim-R', {'for': ['R']}
 "Plug 'vim-scripts/Vim-R-plugin'
 " emmet for fast html
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': ['html']}
 " Fancy start screen
 Plug 'mhinz/vim-startify'
 " Dockerfile support
-Plug 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim', {'for': ['dockerfile']}
 " Neomake instead of Syntastic
 Plug 'neomake/neomake'
 Plug 'ryanoasis/vim-devicons'
@@ -76,20 +76,17 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Adds comments!
 Plug 'scrooloose/nerdcommenter'
 " Haskell support
-Plug 'neovimhaskell/haskell-vim'
+Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 " Intero-haskell
 "Plug 'myfreeweb/intero.nvim'
 " Better session handling
 "Plug 'tpope/vim-obsession'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for': ['latex']}
 
-" Color themes
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-Plug 'flazz/vim-colorschemes'
 " jsdoc
-Plug 'othree/jsdoc-syntax.vim'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'js'] }
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx', 'js'] }
+
 " Surround
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -97,16 +94,21 @@ Plug 'vimwiki/vimwiki'
 " Eerlang runtime
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
 
+" Color themes
+Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+Plug 'flazz/vim-colorschemes'
+
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 	Plug 'ponko2/deoplete-fish', { 'for': ['fish'] }
-	Plug 'Shougo/neco-vim'
-	Plug 'eagletmt/neco-ghc'
-	Plug 'wellle/tmux-complete.vim'
+	Plug 'Shougo/neco-vim', { 'for': ['vim'] }
+	Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
+	Plug 'wellle/tmux-complete.vim', { 'for': ['tmux'] }
 	Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'rb'] }
 	Plug 'ujihisa/neco-look'
-	Plug 'zchee/deoplete-jedi'
+	Plug 'zchee/deoplete-jedi', { 'for': ['python', 'py'] }
 	Plug 'Shougo/neopairs.vim'
 	Plug 'Shougo/context_filetype.vim'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
