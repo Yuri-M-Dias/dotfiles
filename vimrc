@@ -51,7 +51,7 @@ Plug 'dag/vim-fish', {'for': ['fish']}
 " Easymotion, for vimium-like finding
 Plug 'easymotion/vim-easymotion'
 " SQL formatter and utils
-Plug 'vim-scripts/SQLUtilities'
+Plug 'vim-scripts/SQLUtilities', { 'for': ['sql'] }
 " Align plugin
 Plug 'vim-scripts/Align'
 " Syntax!
@@ -95,13 +95,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
 
 " Color themes
-Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
-Plug 'flazz/vim-colorschemes'
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'carlitux/deoplete-ternjs', { 'do': 'sudo npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
 	Plug 'ponko2/deoplete-fish', { 'for': ['fish'] }
 	Plug 'Shougo/neco-vim', { 'for': ['vim'] }
 	Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
@@ -115,6 +113,8 @@ if has('nvim')
 	Plug 'junegunn/fzf.vim'
 	Plug 'Shougo/echodoc.vim'
 	Plug 'sbdchd/neoformat'
+	Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
+	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
 endif
 
 call plug#end()
