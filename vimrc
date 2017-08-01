@@ -115,6 +115,7 @@ if has('nvim')
 	Plug 'sbdchd/neoformat'
 	Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
 	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
+	Plug 'Shougo/neco-syntax'
 endif
 
 call plug#end()
