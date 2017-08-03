@@ -150,7 +150,8 @@ if has('nvim')
 				\ 'jsx',
 				\ 'javascript.jsx',
 				\ 'vue',
-				\ 'javascript'
+				\ 'javascript',
+				\ 'js'
 				\ ]
 	" Tmuxcomplete use deoplete
 	let g:tmuxcomplete#trigger = ''
@@ -249,7 +250,7 @@ let NERDTreeShowHidden=1
 "\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
 "\ 'errorformat': '%f: line %l\, col %c\, %m',
 "\ }
-let g:neomake_javascript_enabled_makers = ['jscs', 'eslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_warning_sign = {
 			\ 'text': '!',
 			\ 'texthl': 'WarningMsg',
