@@ -5,6 +5,7 @@ package nvm
 package pyenv
 package python
 package rails
+package rustup
 package rvm
 package virtualfish
 theme bobthefish
