@@ -113,9 +113,9 @@ alias gcho="git checkout"
 alias gchpk="git cherry-pick"
 #From Remote
 alias gplom="git pull origin master"
-alias gplr="git pull --rebase"
-alias gfo="git fetch origin"
-alias gfop="git fetch origin --prune"
+alias gplr="git pull --rebase -v"
+alias gfo="git fetch origin -v"
+alias gfop="git fetch origin --prune -v"
 alias gclo="git clone"
 
 # Since git doesn't seem to provide a profiling alternative...
