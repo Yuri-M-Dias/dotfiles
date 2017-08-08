@@ -100,8 +100,11 @@ alias gl="git log"
 alias gls="git log --stat"
 alias glsa="git log --stat --all"
 alias glp="git log -p"
+# See gitconfig
 alias glpt="git prettytree"
-#Merge
+alias glg="git lg"
+alias glagp="git lagp"
+# Merge
 alias gmnff="git merge --no-ff"
 alias gptg="git push --tags"
 alias gp="git push"
@@ -110,17 +113,17 @@ alias gpuoh="git push origin HEAD"
 alias grs="git reset --soft"
 alias grh="git reset --hard"
 alias grHEAD="git reset HEAD"
-#Branch
+# Branch
 alias gb="git branch"
 alias gbd="git branch -d"
 alias gba="git branch -a"
 # Deletes local branches that have been already merged into master
 alias gbcleanLocal="git branch --merged master | grep -v 'master\$' | xargs git branch -d"
-#Checkout
+# Checkout
 alias gchob="git checkout -b"
 alias gcho="git checkout"
 alias gchpk="git cherry-pick"
-#From Remote
+# From Remote
 alias gplom="git pull origin master"
 alias gplr="git pull --rebase -v"
 alias gfo="git fetch origin -v"
