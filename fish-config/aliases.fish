@@ -7,7 +7,16 @@ alias ...="cd ../.."
 #alias -="cd -"
 abbr -a -- - 'cd -'
 
-alias la="ls -Glah"
+#alias la="ls -Glah"
+
+function la -d "Show everything using exa"
+    if command --search exa >/dev/null
+        command exa -al --git $argv
+    else
+        ls -Glah $argv
+    end
+end
+
 # List only directories
 alias lsd='ls -la | grep "^d"'
 alias ll='ls -ahlF'
