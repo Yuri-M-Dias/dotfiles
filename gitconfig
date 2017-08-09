@@ -1,6 +1,7 @@
 [core]
 	autocrlf = input
 	editor = vim
+	whitespace = warn
 [user]
 	name = "Yuri-M-Dias"
 	email = "yurimathe.yp@gmail.com"
