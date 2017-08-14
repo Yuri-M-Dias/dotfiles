@@ -107,7 +107,7 @@ alias glagp="git lagp"
 # Merge
 alias gmnff="git merge --no-ff"
 alias gptg="git push --tags"
-alias gp="git push"
+alias gp="git push --verbose"
 # Pushes only the current branch
 alias gpuoh="git push origin HEAD"
 alias grs="git reset --soft"
