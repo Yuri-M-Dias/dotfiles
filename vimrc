@@ -205,6 +205,9 @@ set tabstop=4 shiftwidth=4 sts=4 noet
 set mouse=a
 set showcmd
 
+" https://github.com/neovim/neovim/issues/583
+set clipboard=unnamed
+
 " Plugin configurations
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
@@ -270,6 +273,7 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
+
 
 colorscheme molokai
 
