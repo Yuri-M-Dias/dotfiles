@@ -349,4 +349,7 @@ command! RemoveTrailingWhitespaces :bufdo %s/\s\+$//e
 command! SaveAsRoot :w !sudo tee > /dev/null %
 " Last revision
 command! LastRevision :r !git show HEAD^1:%
+" Open hex visualization
+command! ViewHex :% ! xxd
+command! CloseHex :% ! xxd -r
 
