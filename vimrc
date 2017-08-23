@@ -97,6 +97,9 @@ Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
 " Color themes
 Plug 'tomasr/molokai'
 
+"Hexeditor!
+Plug 'Shougo/vinarise.vim'
+
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
