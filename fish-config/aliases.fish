@@ -179,5 +179,9 @@ alias @dopll="@do pull"
 alias @dev="cd ~/Dev"
 alias @dot="cd ~/dotfiles"
 
+# I use these so much
+alias @tsys="tail /var/log/syslog"
+alias @tfsys="tailf /var/log/syslog"
+
 # Easier to just remember how it works
 alias @nvimPlugInstall="nvim +PlugInstall +PlugClean +q"
