@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Updated to work with Ubuntu 16.04 and kernel 4.4.x
 #TODO: this file is a clusterfuck. Use functions, for Stallman's sake!
 
@@ -7,6 +7,8 @@ sudo -v
 
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 echo "Executing on $DOTFILES"
+
+source "./scripts/common-script-functions.sh"
 
 echo 'Adding necessary repositories'
 sudo apt-add-repository ppa:fish-shell/release-2 -y
@@ -26,18 +28,19 @@ sudo apt-get install \
 	-y --verbose-versions
 
 echo 'Update tmux, compiling from source'
-git clone https://github.com/tmux/tmux/
-cd tmux
+TMUX_SRC="tmux"
+gitCloneIfNecessary https://github.com/tmux/tmux.git "$TMUX_SRC"
+cd "$TMUX_SRC"
 sh autogen.sh
 ./configure && make
-[ -f ./tmux ] && sudo mv ./tmux /usr/bin/
+[ -f "./$TMUX_SRC" ] && sudo mv "./$TMUX_SRC" /usr/bin/
 cd -
 
 echo 'Install tmux plugin manager'
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+gitCloneIfNecessary https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 
 echo 'Installing fonts'
-git clone https://github.com/powerline/fonts.git
+gitCloneIfNecessary https://github.com/powerline/fonts.git fonts
 cd fonts
 ./install.sh
 cd -

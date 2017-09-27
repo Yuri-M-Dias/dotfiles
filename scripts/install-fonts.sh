@@ -1,9 +1,9 @@
-#!/bin/sh
-# Updated to work with Ubuntu 16.04 and kernel 4.4.x
-#TODO: OSX version?
+#!/bin/bash
 
 set -e
 sudo -v
+
+source "./common-script-functions.sh"
 
 echo "Installing Droid Sans Mono for Powerline font with Nerd Icons"
 FONTS_FOLDER="~/.local/share/fonts"
