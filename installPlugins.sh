@@ -52,3 +52,6 @@ source "$DOTFILES/symlinks.sh"
 echo 'Cleaning up...'
 rm -Rf fonts/
 rm -Rf tmux/
+
+echo 'Installing vim plugins'
+nvim +PlugInstall +q +q

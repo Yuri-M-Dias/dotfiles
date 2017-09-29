@@ -46,6 +46,3 @@ mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s "$DOTFILES/vimrc" ~/.config/nvim/init.vim
 
-echo 'Installing vim plugins'
-nvim +PlugInstall +q +q
-
