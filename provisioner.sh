@@ -4,7 +4,8 @@ set -e
 
 # Shell helpers
 echo 'Installing oh-my-fish'
-curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+#curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+source "./scripts/install-omf.sh"
 
 # Docker
 #TODO: make this better. Terrible way of doing it
