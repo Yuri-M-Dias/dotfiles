@@ -8,11 +8,13 @@ echo 'Installing oh-my-fish'
 source "./scripts/install-omf.sh"
 
 # Docker
-#TODO: make this better. Terrible way of doing it
-#echo 'Installing Docker'
+#TODO: better way?
+echo 'Installing Docker'
 #wget -qO- https://get.docker.com/ | sh
 #sudo usermod -aG docker <username> && sudo service docker start
 #newgrp docker
+curl -fsSL get.docker.com -o get-docker.sh
+sh get-docker.sh
 
 # Vagrant
 
