@@ -81,7 +81,11 @@ Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 "Plug 'myfreeweb/intero.nvim'
 " Better session handling
 "Plug 'tpope/vim-obsession'
-Plug 'lervag/vimtex', {'for': ['latex']}
+"
+Plug 'lervag/vimtex', {'for': ['tex', 'latex']}
+
+" A Vim Plugin for Lively Previewing LaTeX PDF Output
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'latex'] }
 
 " jsdoc
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'js'] }
@@ -159,6 +163,35 @@ if has('nvim')
 	" Tmuxcomplete use deoplete
 	let g:tmuxcomplete#trigger = ''
 	silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+
+	" For neovim + vimtex
+	if !exists('g:deoplete#omni#input_patterns')
+		let g:deoplete#omni#input_patterns = {}
+	endif
+
+	" Shamelessly copied over, not working here.
+	" https://github.com/lervag/vimtex/blob/f66a54695e5eb2454266746701575db452b3224f/autoload/vimtex/re.vim
+	let g:vimtex#re#deoplete = '\\(?:'
+      \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+      \ . '|(text|block)cquote\*?(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+      \ . '|(for|hy)\w*cquote\*?{[^}]*}(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+      \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+      \ . '|hyperref\s*\[[^]]*'
+      \ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+      \ . '|(?:include(?:only)?|input)\s*\{[^}]*'
+      \ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+      \ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
+      \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
+      \ . '|usepackage(\s*\[[^]]*\])?\s*\{[^}]*'
+      \ . '|documentclass(\s*\[[^]]*\])?\s*\{[^}]*'
+      \ . '|\w*'
+      \ .')'
+	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+
+	" Echodoc config
+	set noshowmode
+	"set cmdheight=2
+	let g:echodoc#enable_at_startup = 1
 
 	" Necessary for deoplete and other python plugins
 	" Quite bad how this is necessary, but it's here.
@@ -276,7 +309,6 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
-
 
 colorscheme molokai
 
