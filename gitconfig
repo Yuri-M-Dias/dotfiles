@@ -6,6 +6,20 @@
 	name = "Yuri-M-Dias"
 	email = "yurimathe.yp@gmail.com"
 	signingkey = DE197A9D3A09177A
+
+# Commit messages template
+[commit]
+	template = ~/.gitmessage
+# Credential cache
+[credential]
+	helper = cache
+# Matches local branchName with origin/branchName by default
+[push]
+	default = simple
+# Forces GitHub to use my user
+[url "https://Yuri-M-Dias@github.com"]
+	insteadOf = https://github.com
+
 [alias]
 	prettyTree = log --pretty=oneline --graph --decorate --all
 	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
@@ -15,9 +29,4 @@
 	ignore = update-index --assume-unchanged
 	unignore = update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep "^[[:lower:]]"
-[credential]
-	helper = cache
-[push]
-	default = simple
-[url "https://Yuri-M-Dias@github.com"]
-	insteadOf = https://github.com
+

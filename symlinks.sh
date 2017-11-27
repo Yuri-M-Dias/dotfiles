@@ -25,6 +25,9 @@ ln -sfn "$DOTFILES/gitconfig" ~/.gitconfig
 ln -sfn "$DOTFILES/bash_aliases" ~/.bash_aliases
 ln -sfn "$DOTFILES/ideavimrc" ~/.ideavimrc
 
+# Commit messages pattern
+ln -sfn "$DOTFILES/gitmessage" ~/.gitmessage
+
 #Fish configuration
 echo 'Creating fish folders'
 mkdir -p ~/.config/fish/

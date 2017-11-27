@@ -58,6 +58,9 @@ alias dropLinuxCache='su - root --command " sync; echo 1 > /proc/sys/vm/drop_cac
 
 alias isTheInternetOnFire='dig +short -t txt istheinternetonfire.com'
 
+# Stopwatch!
+alias timer='echo "Timer started. Stop with Ctrl-D."; and date; and time cat; and date'
+
 ################################
 ###  Ubuntu-related shortcuts
 ################################
