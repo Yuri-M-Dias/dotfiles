@@ -310,6 +310,9 @@ let g:neoformat_basic_format_trim = 1
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 
+" Disable polyglot's latex support, in favor of VimTex.
+let g:polyglot_disabled = ['latex']
+
 colorscheme molokai
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
