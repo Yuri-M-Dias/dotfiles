@@ -98,6 +98,9 @@ Plug 'vimwiki/vimwiki'
 " Eerlang runtime
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
 
+" CSV support
+Plug 'chrisbra/csv.vim', { 'for': ['csv'] }
+
 " Color themes
 Plug 'tomasr/molokai'
 

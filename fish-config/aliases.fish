@@ -26,7 +26,7 @@ alias apt="sudo apt"
 alias aptU="apt update"
 alias aptI="apt install"
 alias aptRm="apt remove"
-alias aptUpg="apt upgrade"
+alias aptUpg="apt update; and apt upgrade"
 alias aptLs="apt list"
 alias aptLsUp="aptLs --upgradable"
 
