@@ -99,6 +99,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
 
 " CSV support
+Plug 'mechatroner/rainbow_csv', { 'for': ['csv'] }
 Plug 'chrisbra/csv.vim', { 'for': ['csv'] }
 
 " Color themes
@@ -126,6 +127,7 @@ if has('nvim')
 	Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
 	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
 	Plug 'Shougo/neco-syntax'
+	Plug 'lionawurscht/deoplete-biblatex', { 'for': ['tex', 'latex']}
 endif
 
 call plug#end()
@@ -190,10 +192,19 @@ if has('nvim')
 				\ . '|\w*'
 				\ .')'
 	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+	inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ deoplete#mappings#manual_complete()
+	function! s:check_back_space() abort "{{{
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
+	endfunction"}}}
 
 	" Echodoc config
 	set noshowmode
 	"set cmdheight=2
+	"
 	let g:echodoc#enable_at_startup = 1
 
 	" Necessary for deoplete and other python plugins
