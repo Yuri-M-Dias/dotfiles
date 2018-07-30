@@ -32,7 +32,7 @@ ln -sfn "$DOTFILES/gitmessage" ~/.gitmessage
 echo 'Creating fish folders'
 mkdir -p ~/.config/fish/
 #mkdir -p ~/.config/fish/functions/
-ln -s "$DOTFILES/fish-config/functions" ~/.config/fish/functions
+ln -sfn "$DOTFILES/fish-config/functions" ~/.config/fish/functions
 ln -sfn "$DOTFILES/fish-config/aliases.fish" ~/.config/fish/aliases.fish
 # TODO: OMF config, themes and plugins?
 # Backup the current one
@@ -42,6 +42,10 @@ ln -sfn "$DOTFILES/omf" ~/.config/omf
 
 echo 'Linking R profile'
 ln -sfn "$DOTFILES/Rprofile" ~/.Rprofile
+
+echo "Adding MPV.conf"
+mkdir -p ~/.config/mpv/
+ln -sfn "$DOTFILES/mpv.conf" ~/.config/mpv/mpv.conf
 
 # Symlinks nvim
 echo "Symlinking Neovim"

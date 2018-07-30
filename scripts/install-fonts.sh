@@ -4,10 +4,10 @@ set -e
 sudo -v
 
 echo "Installing Droid Sans Mono for Powerline font with Nerd Icons"
-export FONTS_FOLDER="~/.local/share/fonts"
+export FONTS_FOLDER="$HOME/.local/share/fonts"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	mkdir -p ~/.local/share/fonts
+	mkdir -p "$FONTS_FOLDER"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	FONTS_FOLDER="~/Library/Fonts"
 else

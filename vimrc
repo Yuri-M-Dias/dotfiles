@@ -104,6 +104,7 @@ Plug 'chrisbra/csv.vim', { 'for': ['csv'] }
 
 " Color themes
 Plug 'tomasr/molokai'
+Plug 'tpope/vim-vividchalk'
 
 "Hexeditor!
 Plug 'Shougo/vinarise.vim'
