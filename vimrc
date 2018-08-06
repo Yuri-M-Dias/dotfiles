@@ -109,6 +109,12 @@ Plug 'tpope/vim-vividchalk'
 "Hexeditor!
 Plug 'Shougo/vinarise.vim'
 
+" Adds grammar checks
+Plug 'rhysd/vim-grammarous'
+
+" Denite? Testing it out. 
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
