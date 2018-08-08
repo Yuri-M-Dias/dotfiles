@@ -59,7 +59,7 @@ Plug 'sheerun/vim-polyglot'
 " Ctrlp fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 " R support
-Plug 'jalvesaq/Nvim-R', {'for': ['R']}
+Plug 'jalvesaq/Nvim-R' ", {'for': ['R', 'r', 'rmd', 'Rmd']}
 "Plug 'vim-scripts/Vim-R-plugin'
 " emmet for fast html
 Plug 'mattn/emmet-vim', {'for': ['html']}
@@ -114,6 +114,9 @@ Plug 'rhysd/vim-grammarous'
 
 " Denite? Testing it out. 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Pandoc support: the best stuff since coca-cola!
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -277,12 +280,13 @@ let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 "let vimrplugin_applescript=0
 "let vimrplugin_vsplit=1
 "
-"let R_esc_term = 0
-"let R_close_term = 0
-"let R_in_buffer = 0
+
+" The maintainer won't maintain the tmux integration anymore...
 let g:R_in_buffer = 0
 let g:R_applescript = 0
-let g:R_tmux_split = 1
+let g:R_source = '$HOME/.config/nvim/opt/tmux_split.vim'
+" Ensures usage of your own ~/.tmux.conf file
+let g:R_notmuxconf = 1
 
 " Startify sessions configurations
 let g:startify_session_autoload = 1
