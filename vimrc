@@ -118,6 +118,9 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
+" BDD framework for vim!
+Plug 'junegunn/vader.vim'
+
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
@@ -324,6 +327,9 @@ let g:neomake_error_sign = {
 			\ 'text': '×',
 			\ 'texthl': 'ErrorMsg',
 			\ }
+
+" Fix for https://github.com/neomake/neomake/issues/1777
+let g:neomake_shellcheck_args = ['-fgcc']
 
 " Neoformat configuration
 " Enable alignment
