@@ -94,6 +94,8 @@ Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx', 'js'] }
 " Surround
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+
+" Vimwiki?
 Plug 'vimwiki/vimwiki'
 " Eerlang runtime
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['eerlang'] }
@@ -104,7 +106,7 @@ Plug 'chrisbra/csv.vim', { 'for': ['csv'] }
 
 " Color themes
 Plug 'tomasr/molokai'
-Plug 'tpope/vim-vividchalk'
+"Plug 'tpope/vim-vividchalk'
 
 "Hexeditor!
 Plug 'Shougo/vinarise.vim'
@@ -119,7 +121,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " BDD framework for vim!
-Plug 'junegunn/vader.vim'
+Plug 'junegunn/vader.vim', {'for': ['vader']}
 
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
