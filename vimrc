@@ -85,7 +85,7 @@ Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 " Better session handling
 "Plug 'tpope/vim-obsession'
 "
-Plug 'lervag/vimtex', {'for': ['tex', 'latex', 'rmd']}
+Plug 'lervag/vimtex', {'for': ['tex', 'latex']}
 
 " jsdoc
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'js'] }
@@ -116,9 +116,16 @@ Plug 'rhysd/vim-grammarous'
 
 " Denite? Testing it out.
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Pandoc support: the best stuff since coca-cola!
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+" RMarkdown!
+Plug 'vim-pandoc/vim-rmarkdown'
+
+" Zotero stuff
+Plug 'rafaqz/citation.vim'
+Plug 'jalvesaq/zotcite' ", { 'for': ['markdown', 'md', 'rmd']}
 
 " BDD framework for vim!
 Plug 'junegunn/vader.vim', {'for': ['vader']}
@@ -142,7 +149,7 @@ if has('nvim')
 	Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
 	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
 	Plug 'Shougo/neco-syntax'
-	Plug 'lionawurscht/deoplete-biblatex', { 'for': ['tex', 'latex']}
+	Plug 'lionawurscht/deoplete-biblatex' ", { 'for': ['tex', 'latex', 'rmd', 'md']}
 endif
 
 call plug#end()
@@ -202,7 +209,7 @@ if has('nvim')
 				\ .')'
 	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
-	" Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185<Paste>
+	" Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185
 	let g:deoplete#omni#input_patterns.pandoc= '@\w*'
 	let g:deoplete#omni#input_patterns.rmd= '@\w*'
 	" TODO: need to work on these!
@@ -233,9 +240,9 @@ if has('nvim')
 		let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
 		let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
 	endif
-	" Things that nvim removed
 elseif !has('nvim')
-	set nocompatible              " be iMproved
+	" Things that neovim removed
+	set nocompatible " be iMproved
 	set ttymouse=xterm2
 	set term=screen-256color
 endif
@@ -268,6 +275,7 @@ set wildmenu
 set scrolloff=10
 set nofoldenable
 set incsearch
+
 " display indentation guides
 set list listchars=tab:▸\ ,trail:·,extends:>,precedes:«,nbsp:×,eol:¬
 " Converts tabs to spaces
@@ -290,12 +298,16 @@ let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 " The maintainer won't maintain the tmux integration anymore...
 let g:R_in_buffer = 0
 let g:R_applescript = 0
+"
+" Workaround... can't find the issue now...
 let g:R_source = '$HOME/.config/nvim/opt/tmux_split.vim'
+
 " Ensures usage of your own ~/.tmux.conf file
 let g:R_notmuxconf = 1
 
-"let R_openpdf = 1
-"let g:R_pdfviewer = ''
+" Zathura sucks.
+let R_openpdf = 1
+let g:R_pdfviewer = 'evince'
 
 " Startify sessions configurations
 let g:startify_session_autoload = 1
@@ -413,8 +425,14 @@ autocmd FileType python setlocal et
 " Autoformat helper
 autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 
+" Sort-of-autoreload for Rmarkdown...
+autocmd! BufWritePost *.Rmd call RMakeRmd("default")
+
 " Triggers neomake
 autocmd! BufWritePost,BufEnter * Neomake
+
+" Auto-closes R
+autocmd! VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
 
 " Custom command customizations
 " I stole these from @joaumg
