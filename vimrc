@@ -213,14 +213,16 @@ if has('nvim')
 	let g:deoplete#omni#input_patterns.rmd= '@\w*'
 	" TODO: need to work on these!
 
-	inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#mappings#manual_complete()
+	" https://github.com/Shougo/deoplete.nvim/issues/816
+	" Supposed to make <TAB> completition...
 	function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
+	  let col = col('.') - 1
+	  return !col || getline('.')[col - 1]  =~ '\s'
 	endfunction"}}}
+	inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#manual_complete()
 
 	" Echodoc config
 	set noshowmode
