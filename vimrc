@@ -23,8 +23,9 @@ call plug#begin('~/.vim/plugged')
 
 " Git utilities
 Plug 'airblade/vim-gitgutter'
-"Plug 'tpope/vim-fugitive'
-Plug 'lambdalisue/gina.vim'
+Plug 'tpope/vim-fugitive'
+" Interesting, but not as easy to use as fugitive...
+"Plug 'lambdalisue/gina.vim'
 " Better integration with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Snippets for the win
@@ -45,8 +46,6 @@ Plug 'timakro/vim-searchant'
 Plug 'mbbill/undotree'
 " Adds api blueprint support and syntax
 Plug 'kylef/apiblueprint.vim', {'for': ['apiblueprint']}
-" Installs syntastic
-"Plug 'scrooloose/syntastic'
 " Fish files syntax highlight
 Plug 'dag/vim-fish', {'for': ['fish']}
 " Easymotion, for vimium-like finding
@@ -83,10 +82,7 @@ Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 " Better session handling
 "Plug 'tpope/vim-obsession'
 "
-Plug 'lervag/vimtex', {'for': ['tex', 'latex']}
-
-" A Vim Plugin for Lively Previewing LaTeX PDF Output
-"Plug 'xuhdev/vim-latex-live-preview', { 'for': ['tex', 'latex'] }
+Plug 'lervag/vimtex', {'for': ['tex', 'latex', 'rmd']}
 
 " jsdoc
 Plug 'othree/jsdoc-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'js'] }
@@ -115,7 +111,7 @@ Plug 'Shougo/vinarise.vim'
 " Adds grammar checks
 Plug 'rhysd/vim-grammarous'
 
-" Denite? Testing it out. 
+" Denite? Testing it out.
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Pandoc support: the best stuff since coca-cola!
 Plug 'vim-pandoc/vim-pandoc'
@@ -151,12 +147,6 @@ call plug#end()
 """""""""CONFIGURATION SECTION"""""""""""""""
 " All sets and specific configuration should go here
 
-" Things that nvim removed
-if !has('nvim')
-	set nocompatible              " be iMproved
-	set ttymouse=xterm2
-	set term=screen-256color
-endif
 
 " Nvim-specific options
 if has('nvim')
@@ -185,7 +175,7 @@ if has('nvim')
 	let g:tmuxcomplete#trigger = ''
 	silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
 
-	" For neovim + vimtex
+	" Need this to customize deoplete
 	if !exists('g:deoplete#omni#input_patterns')
 		let g:deoplete#omni#input_patterns = {}
 	endif
@@ -217,13 +207,13 @@ if has('nvim')
 	" https://github.com/Shougo/deoplete.nvim/issues/816
 	" Supposed to make <TAB> completition...
 	function! s:check_back_space() abort "{{{
-	  let col = col('.') - 1
-	  return !col || getline('.')[col - 1]  =~ '\s'
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
 	endfunction"}}}
 	inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#manual_complete()
+				\ pumvisible() ? "\<C-n>" :
+				\ <SID>check_back_space() ? "\<TAB>" :
+				\ deoplete#manual_complete()
 
 	" Echodoc config
 	set noshowmode
@@ -240,7 +230,11 @@ if has('nvim')
 		let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
 		let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
 	endif
-
+	" Things that nvim removed
+elseif !has('nvim')
+	set nocompatible              " be iMproved
+	set ttymouse=xterm2
+	set term=screen-256color
 endif
 
 set encoding=utf8
@@ -289,11 +283,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
 
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
-"
-" Some R plugins options
-"let vimrplugin_applescript=0
-"let vimrplugin_vsplit=1
-"
 
 " The maintainer won't maintain the tmux integration anymore...
 let g:R_in_buffer = 0
@@ -302,7 +291,7 @@ let g:R_source = '$HOME/.config/nvim/opt/tmux_split.vim'
 " Ensures usage of your own ~/.tmux.conf file
 let g:R_notmuxconf = 1
 
-let R_openpdf = 1
+"let R_openpdf = 1
 "let g:R_pdfviewer = ''
 
 " Startify sessions configurations
@@ -377,12 +366,13 @@ nnoremap <LEADER>d :w<CR>:bd<CR>
 " forget about it
 nnoremap <LEADER>x :bd!<CR>
 
+" THIS NEVER WORKED.
 " Navigation like a Browser, but for buffers.
-nnoremap <C-S-tab> :bp<CR>
-nnoremap <C-tab>   :bn<CR>
+"nnoremap <C-S-tab> :bp<CR>
+"nnoremap <C-tab>   :bn<CR>
 "nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:bp<CR>i
-inoremap <C-tab>   <Esc>:bn<CR>i
+"inoremap <C-S-tab> <Esc>:bp<CR>i
+"inoremap <C-tab>   <Esc>:bn<CR>i
 "inoremap <C-t>     <Esc>:tabnew<CR>
 
 " previous buffer
