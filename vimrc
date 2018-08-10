@@ -207,6 +207,12 @@ if has('nvim')
 				\ . '|\w*'
 				\ .')'
 	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+
+	" Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185<Paste>
+	let g:deoplete#omni#input_patterns.pandoc= '@\w*'
+	let g:deoplete#omni#input_patterns.rmd= '@\w*'
+	" TODO: need to work on these!
+
 	inoremap <silent><expr> <TAB>
 		\ pumvisible() ? "\<C-n>" :
 		\ <SID>check_back_space() ? "\<TAB>" :
