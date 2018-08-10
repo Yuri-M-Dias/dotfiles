@@ -24,8 +24,11 @@ call plug#begin('~/.vim/plugged')
 " Git utilities
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+" GitHub integration
+Plug 'tpope/vim-rhubarb'
 " Interesting, but not as easy to use as fugitive...
 "Plug 'lambdalisue/gina.vim'
+
 " Better integration with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Snippets for the win
