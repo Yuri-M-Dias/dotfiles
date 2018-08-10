@@ -23,7 +23,8 @@ call plug#begin('~/.vim/plugged')
 
 " Git utilities
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
+Plug 'lambdalisue/gina.vim'
 " Better integration with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Snippets for the win
@@ -300,6 +301,9 @@ let g:R_applescript = 0
 let g:R_source = '$HOME/.config/nvim/opt/tmux_split.vim'
 " Ensures usage of your own ~/.tmux.conf file
 let g:R_notmuxconf = 1
+
+let R_openpdf = 1
+"let g:R_pdfviewer = ''
 
 " Startify sessions configurations
 let g:startify_session_autoload = 1
