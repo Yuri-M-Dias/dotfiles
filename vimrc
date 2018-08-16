@@ -426,7 +426,9 @@ autocmd FileType python setlocal et
 autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
 
 " Sort-of-autoreload for Rmarkdown...
-autocmd! BufWritePost *.Rmd call RMakeRmd("default")
+" Only activate when necessary!
+" TODO: make a plugin out of this, it's the perfect opportunity!
+" autocmd! BufWritePost *.Rmd call RMakeRmd("default")
 
 " Triggers neomake
 autocmd! BufWritePost,BufEnter * Neomake
