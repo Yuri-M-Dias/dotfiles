@@ -216,11 +216,11 @@ if has('nvim')
 	let g:deoplete#omni#input_patterns.rmd= '@\w*'
 
 	call deoplete#custom#option('omni_patterns', {
-		\ 'tex' : g:vimtex#re#deoplete,
-		\ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
-		\ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
-		\ 'pandoc': ['@\w*'],
-		\})
+				\ 'tex' : g:vimtex#re#deoplete,
+				\ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
+				\ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
+				\ 'pandoc': ['@\w*'],
+				\})
 
 	" TODO: need to work on these!
 
@@ -421,6 +421,8 @@ nnoremap <leader><down> ddp
 "nmap <Space> <Plug>RDSendLine
 
 
+" TODO: get the full path and just pass that to inf_mr
+" Returns the current filename
 function! s:getCurrentFileName() abort "{{{
 	return expand('%:t')
 endfunction"}}}
@@ -428,10 +430,11 @@ endfunction"}}}
 " Makes xaringan use the current file
 
 let g:xaringan#sendCmd = 'xaringan::inf_mr(moon = paste0(getwd(), "/'
-	\ . <SID>getCurrentFileName()
-	\ . '"))'
+			\ . <SID>getCurrentFileName()
+			\ . '"))'
 
-nnoremap <silent> <LocalLeader>rx 
+" Custom keybind
+nnoremap <silent> <LocalLeader>rx
 			\ :call g:SendCmdToR(g:xaringan#sendCmd)
 			\ <CR>
 
@@ -456,7 +459,12 @@ autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --s
 " autocmd! BufWritePost *.Rmd call RMakeRmd("default")
 
 " Triggers neomake
-autocmd! BufWritePost,BufEnter * Neomake
+"autocmd! BufWritePost,BufEnter * Neomake
+
+call neomake#configure#automake({
+			\ 'BufWritePost': {'delay': 200},
+			\ 'BufWinEnter': {'delay': 1000},
+			\ }, 500)
 
 " Auto-closes R
 autocmd! VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
