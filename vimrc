@@ -150,6 +150,8 @@ if has('nvim')
 	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
 	Plug 'Shougo/neco-syntax'
 	Plug 'lionawurscht/deoplete-biblatex' ", { 'for': ['tex', 'latex', 'rmd', 'md']}
+	Plug 'roxma/nvim-completion-manager'
+	Plug 'gaalcaras/ncm-R'
 endif
 
 call plug#end()
@@ -212,6 +214,14 @@ if has('nvim')
 	" Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185
 	let g:deoplete#omni#input_patterns.pandoc= '@\w*'
 	let g:deoplete#omni#input_patterns.rmd= '@\w*'
+
+	call deoplete#custom#option('omni_patterns', {
+		\ 'tex' : g:vimtex#re#deoplete,
+		\ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
+		\ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
+		\ 'pandoc': ['@\w*'],
+		\})
+
 	" TODO: need to work on these!
 
 	" https://github.com/Shougo/deoplete.nvim/issues/816
@@ -377,9 +387,9 @@ nnoremap <leader>f :wq<CR>
 nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader>r :so $MYVIMRC<CR>
 " done with it
-nnoremap <LEADER>d :w<CR>:bd<CR>
+nnoremap <leader>d :w<CR>:bd<CR>
 " forget about it
-nnoremap <LEADER>x :bd!<CR>
+nnoremap <leader>x :bd!<CR>
 
 " THIS NEVER WORKED.
 " Navigation like a Browser, but for buffers.
@@ -396,9 +406,9 @@ nnoremap <C-H> :bp<CR>
 nnoremap <C-L> :bn<CR>
 
 " move one line up
-nnoremap <LEADER><UP> ddkP
+nnoremap <leader><up> ddkP
 " move one line down
-nnoremap <LEADER><DOWN> ddp
+nnoremap <leader><down> ddp
 
 " copiar e colar
 "vmap <C-c> "*y     " Yank current selection into system clipboard
@@ -409,6 +419,21 @@ nnoremap <LEADER><DOWN> ddp
 " R plugin configuration
 "vmap <Space> <Plug>RDSendSelection
 "nmap <Space> <Plug>RDSendLine
+
+
+function! s:getCurrentFileName() abort "{{{
+	return expand('%:t')
+endfunction"}}}
+
+" Makes xaringan use the current file
+
+let g:xaringan#sendCmd = 'xaringan::inf_mr(moon = paste0(getwd(), "/'
+	\ . <SID>getCurrentFileName()
+	\ . '"))'
+
+nnoremap <silent> <LocalLeader>rx 
+			\ :call g:SendCmdToR(g:xaringan#sendCmd)
+			\ <CR>
 
 " Don't use Ex mode, use Q for formatting
 "nnoremap Q <Esc>gg=G<Esc>
