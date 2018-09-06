@@ -130,6 +130,9 @@ Plug 'jalvesaq/zotcite' ", { 'for': ['markdown', 'md', 'rmd']}
 " BDD framework for vim!
 Plug 'junegunn/vader.vim', {'for': ['vader']}
 
+" Best way of seeing keymaps?
+Plug 'liuchengxu/vim-which-key'
+
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
@@ -419,7 +422,12 @@ nnoremap <leader><down> ddp
 " R plugin configuration
 "vmap <Space> <Plug>RDSendSelection
 "nmap <Space> <Plug>RDSendLine
+"
 
+" Displays the current leader mappings
+"https://github.com/liuchengxu/vim-which-key
+nnoremap <silent> <leader>      :<c-u>WhichKey '\'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey '\'<CR>
 
 " TODO: get the full path and just pass that to inf_mr
 " Returns the current filename
