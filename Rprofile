@@ -19,3 +19,7 @@ options(
     blogdown.ext = '.Rmd',
     blogdown.author = 'Yuri-M-Dias'
 )
+
+Sys.setenv(
+    RETICULATE_PYTHON = '/home/yuri/.pyenv/versions/anaconda3-5.2.0/envs/r-tensorflow/bin/python'
+)
