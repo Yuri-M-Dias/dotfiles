@@ -125,7 +125,7 @@ Plug 'vim-pandoc/vim-rmarkdown'
 
 " Zotero stuff
 Plug 'rafaqz/citation.vim'
-Plug 'jalvesaq/zotcite' ", { 'for': ['markdown', 'md', 'rmd']}
+Plug 'jalvesaq/zotcite', { 'for': ['markdown', 'md', 'rmd']}
 
 " BDD framework for vim!
 Plug 'junegunn/vader.vim', {'for': ['vader']}
@@ -296,6 +296,10 @@ set tabstop=4 shiftwidth=4 sts=4 noet
 "set fileformats=unix
 set mouse=a
 set showcmd
+
+" http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
 
 " https://github.com/neovim/neovim/issues/583
 set clipboard=unnamed
