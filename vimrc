@@ -63,6 +63,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
 " R support
 Plug 'jalvesaq/Nvim-R' ", {'for': ['R', 'r', 'rmd', 'Rmd']}
+" Devtools
+Plug 'mllg/vim-devtools-plugin', { 'for': ['r', 'rmd', 'rnoweb']}
 "Plug 'vim-scripts/Vim-R-plugin'
 " emmet for fast html
 Plug 'mattn/emmet-vim', {'for': ['html']}
