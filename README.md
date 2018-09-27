@@ -7,3 +7,4 @@ If i have to provision one more enviroment, i'm going to kill someone. So i'll p
 ```bash
 $ curl -L https://raw.githubusercontent.com/Yuri-M-Dias/dotfiles/master/easy_dotfiles | bash
 ```
+

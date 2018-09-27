@@ -181,6 +181,7 @@ alias @dopll="@do pull"
 #TODO: make these into some sort of ambient variable
 alias @dev="cd ~/Dev"
 alias @dot="cd ~/dotfiles"
+alias @wiki="cd ~/vimwiki"
 
 # I use these so much
 alias @tsys="tail /var/log/syslog"

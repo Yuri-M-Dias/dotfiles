@@ -53,3 +53,5 @@ mkdir -p ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s "$DOTFILES/vimrc" ~/.config/nvim/init.vim
 
+echo "Cloning my vimwiki"
+git clone https://github.com/Yuri-M-Dias/wiki ~/vimwiki --progress
