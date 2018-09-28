@@ -183,6 +183,9 @@ alias @dev="cd ~/Dev"
 alias @dot="cd ~/dotfiles"
 alias @wiki="cd ~/vimwiki"
 
+# Goes into the wiki repo, pushes and then comes back
+alias @wikip="@wiki; and gp; and cd -"
+
 # I use these so much
 alias @tsys="tail /var/log/syslog"
 alias @tfsys="tailf /var/log/syslog"
