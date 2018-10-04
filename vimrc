@@ -135,6 +135,9 @@ Plug 'junegunn/vader.vim', {'for': ['vader']}
 " Best way of seeing keymaps?
 Plug 'liuchengxu/vim-which-key'
 
+" Java autocomplete!
+Plug 'artur-shaik/vim-javacomplete2'
+
 if has('nvim')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
@@ -219,11 +222,14 @@ if has('nvim')
 	" Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185
 	let g:deoplete#omni#input_patterns.pandoc= '@\w*'
 	let g:deoplete#omni#input_patterns.rmd= '@\w*'
+	" http://www.galiglobal.com/blog/2017/20170226-Vim-as-Java-IDE-again.html
+	let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
 
 	call deoplete#custom#option('omni_patterns', {
 				\ 'tex' : g:vimtex#re#deoplete,
 				\ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
 				\ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
+				\ 'java' : ['[^. *\t]\.\w*'],
 				\ 'pandoc': ['@\w*'],
 				\})
 
@@ -466,6 +472,9 @@ autocmd FileType python setlocal et
 
 " Autoformat helper
 autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+
+" Makes java use javaComplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Sort-of-autoreload for Rmarkdown...
 " Only activate when necessary!
