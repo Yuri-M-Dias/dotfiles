@@ -26,9 +26,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " GitHub integration
 Plug 'tpope/vim-rhubarb'
-" Interesting, but not as easy to use as fugitive...
-"Plug 'lambdalisue/gina.vim'
-
 " Better integration with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " Snippets for the win
@@ -86,7 +83,7 @@ Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 "Plug 'myfreeweb/intero.nvim'
 " Better session handling
 "Plug 'tpope/vim-obsession'
-"
+
 Plug 'lervag/vimtex', {'for': ['tex', 'latex']}
 
 " jsdoc
@@ -157,7 +154,7 @@ if has('nvim')
 	Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
 	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
 	Plug 'Shougo/neco-syntax'
-	Plug 'lionawurscht/deoplete-biblatex' ", { 'for': ['tex', 'latex', 'rmd', 'md']}
+	Plug 'lionawurscht/deoplete-biblatex'
 	Plug 'roxma/nvim-completion-manager'
 	Plug 'gaalcaras/ncm-R'
 endif
@@ -236,7 +233,7 @@ if has('nvim')
 	" TODO: need to work on these!
 
 	" https://github.com/Shougo/deoplete.nvim/issues/816
-	" Supposed to make <TAB> completition...
+	" Supposed to make <TAB> completition, but doesn't work!
 	function! s:check_back_space() abort "{{{
 		let col = col('.') - 1
 		return !col || getline('.')[col - 1]  =~ '\s'
@@ -325,7 +322,7 @@ let g:R_in_buffer = 0
 let g:R_applescript = 0
 "
 " Workaround... can't find the issue now...
-let g:R_source = '$HOME/.config/nvim/opt/tmux_split.vim'
+let g:R_source=$HOME.'/.config/nvim/opt/tmux_split.vim'
 
 " Ensures usage of your own ~/.tmux.conf file
 let g:R_notmuxconf = 1
@@ -356,11 +353,6 @@ let NERDTreeShowHidden=1
 
 " Neomake configuration
 "let g:neomake_open_list = 2
-"let g:neomake_javascript_jscs_maker = {
-"\ 'exe': 'jscs',
-"\ 'args': ['--no-color', '--preset', 'airbnb', '--reporter', 'inline', '--esnext'],
-"\ 'errorformat': '%f: line %l\, col %c\, %m',
-"\ }
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_warning_sign = {
 			\ 'text': '!',
@@ -425,7 +417,6 @@ nnoremap <leader><up> ddkP
 " move one line down
 nnoremap <leader><down> ddp
 
-" copiar e colar
 "vmap <C-c> "*y     " Yank current selection into system clipboard
 "nmap <C-c> "*Y     " Yank current line into system clipboard (if nothing is selected)
 "nmap <C-v> "*p     " Paste from system clipboard
