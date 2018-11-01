@@ -377,7 +377,8 @@ let g:neoformat_basic_format_trim = 1
 let g:neoformat_try_formatprg = 1
 
 " Disable polyglot's latex support, in favor of VimTex.
-let g:polyglot_disabled = ['latex']
+" R.vim is also absolutely dreadful
+let g:polyglot_disabled = ['latex', 'r-lang']
 
 colorscheme molokai
 
