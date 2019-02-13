@@ -428,7 +428,8 @@ inoremap <c-c> <ESC>
 
 " Press enter key to trigger snippet expansion
 " The parameters are the same as `:help feedkeys()`
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+"inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -475,9 +476,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " really only for neovim
 autocmd BufEnter * call ncm2#enable_for_buffer()
-autocmd FileType tex
-            \ call deoplete#custom#buffer_option('auto_complete', v:false)
-
+autocmd FileType tex call deoplete#custom#buffer_option('auto_complete', v:false)
 
 " Sort-of-autoreload for Rmarkdown...
 " Only activate when necessary!
