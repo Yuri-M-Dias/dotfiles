@@ -119,12 +119,13 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Pandoc support: the best stuff since coca-cola!
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+
 " RMarkdown!
-Plug 'vim-pandoc/vim-rmarkdown'
+"Plug 'vim-pandoc/vim-rmarkdown'
 
 " Zotero stuff
-Plug 'rafaqz/citation.vim'
-Plug 'jalvesaq/zotcite', { 'for': ['markdown', 'md', 'rmd']}
+"Plug 'rafaqz/citation.vim'
+"Plug 'jalvesaq/zotcite'
 
 " BDD framework for vim!
 Plug 'junegunn/vader.vim', {'for': ['vader']}
@@ -141,7 +142,7 @@ if has('nvim')
     Plug 'ponko2/deoplete-fish', { 'for': ['fish'] }
     Plug 'Shougo/neco-vim', { 'for': ['vim'] }
     Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
-    Plug 'wellle/tmux-complete.vim', { 'for': ['tmux'] }
+    Plug 'wellle/tmux-complete.vim'
     Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'rb'] }
     Plug 'ujihisa/neco-look'
     Plug 'zchee/deoplete-jedi', { 'for': ['python', 'py'] }
@@ -163,6 +164,13 @@ if has('nvim')
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-ultisnips'
+    Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
+    Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+    Plug 'ncm2/ncm2-pyclang'
+    Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
+    Plug 'ncm2/ncm2-github'
+    Plug 'ncm2/ncm2-markdown-subscope'
+    Plug 'fgrsnau/ncm2-aspell'
 endif
 
 call plug#end()
@@ -194,7 +202,7 @@ if has('nvim')
                 \ 'javascript',
                 \ 'js'
                 \ ]
-    " Tmuxcomplete use deoplete
+    " Tmuxcomplete use the default completition manager
     let g:tmuxcomplete#trigger = ''
     silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
 
@@ -236,18 +244,6 @@ if has('nvim')
                 \ 'pandoc': ['@\w*'],
                 \})
 
-    au User Ncm2Plugin call ncm2#register_source({
-                \ 'name' : 'vimtex',
-                \ 'priority': 1,
-                \ 'subscope_enable': 1,
-                \ 'complete_length': 1,
-                \ 'scope': ['tex'],
-                \ 'matcher': {'name': 'prefix', 'key': 'word'},
-                \ 'mark': 'tex',
-                \ 'word_pattern': '\w+',
-                \ 'complete_pattern': g:vimtex#re#ncm,
-                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-                \ })
 
     " Echodoc config
     set noshowmode
@@ -283,16 +279,14 @@ set relativenumber
 set cursorline
 set hidden
 set laststatus=2
-"set autoindent
+set autoindent
 set backspace=indent,eol,start
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-"set smarttab
+set smarttab
 set colorcolumn=80
-"set wildmenu
-"set wildmode=longest,list,full
-"set wildchar=<tab>
+set wildmenu
 set scrolloff=10
 "set nofoldenable
 set incsearch
@@ -356,11 +350,6 @@ let g:startify_session_before_save = [
             \ 'silent! NERDTreeTabsClose'
             \ ]
 let g:startify_custom_header = startify#fortune#boxed()
-
-" UltiSnips configuration
-"let g:UltiSnipsExpandTrigger="<TAB>"
-"let g:UltiSnipsJumpForwardTrigger="<TAB>"
-"let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
 " NERDTree configuration
 let NERDTreeShowHidden=1
@@ -428,8 +417,10 @@ inoremap <c-c> <ESC>
 
 " Press enter key to trigger snippet expansion
 " The parameters are the same as `:help feedkeys()`
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 "inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -474,9 +465,68 @@ autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --s
 " Makes java use javaComplete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-" really only for neovim
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" Disable deoplete on some filetypes...
 autocmd FileType tex call deoplete#custom#buffer_option('auto_complete', v:false)
+autocmd FileType r call deoplete#custom#buffer_option('auto_complete', v:false)
+autocmd FileType rmarkdown call deoplete#custom#buffer_option('auto_complete', v:false)
+
+augroup my_cm_setup
+    autocmd!
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'vimtex-cmds',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'prefix', 'key': 'word'},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#cmds,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+    autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'vimtex-labels',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'combine',
+                \             'matchers': [
+                \               {'name': 'substr', 'key': 'word'},
+                \               {'name': 'substr', 'key': 'menu'},
+                \             ]},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#labels,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+    autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'vimtex-files',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'combine',
+                \             'matchers': [
+                \               {'name': 'abbrfuzzy', 'key': 'word'},
+                \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+                \             ]},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#files,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+    autocmd Filetype tex call ncm2#register_source({
+                \ 'name' : 'bibtex',
+                \ 'priority': 8,
+                \ 'complete_length': -1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'combine',
+                \             'matchers': [
+                \               {'name': 'prefix', 'key': 'word'},
+                \               {'name': 'abbrfuzzy', 'key': 'abbr'},
+                \               {'name': 'abbrfuzzy', 'key': 'menu'},
+                \             ]},
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm2#bibtex,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
+augroup END
 
 " Sort-of-autoreload for Rmarkdown...
 " Only activate when necessary!
