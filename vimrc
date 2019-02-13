@@ -155,8 +155,11 @@ if has('nvim')
 	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
 	Plug 'Shougo/neco-syntax'
 	Plug 'lionawurscht/deoplete-biblatex'
-	Plug 'roxma/nvim-completion-manager'
+	Plug 'ncm2/ncm2'
+	Plug 'ncm2/ncm2-ultisnips'
+	Plug 'roxma/nvim-yarp'
 	Plug 'gaalcaras/ncm-R'
+	Plug 'lervag/vimtex'
 endif
 
 call plug#end()
@@ -250,14 +253,8 @@ if has('nvim')
 	let g:echodoc#enable_at_startup = 1
 
 	" Necessary for deoplete and other python plugins
-	" Quite bad how this is necessary, but it's here.
-	if g:os == "Darwin"
-		let g:python_host_prog= '/Users/Usuario/.pyenv/versions/neovim2/bin/python'
-		let g:python3_host_prog= '/Users/Usuario/.pyenv/versions/neovim3/bin/python'
-	elseif g:os == "Linux"
-		let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
-		let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
-	endif
+	let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
+	let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
 elseif !has('nvim')
 	" Things that neovim removed
 	set nocompatible " be iMproved
