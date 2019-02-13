@@ -1,0 +1,73 @@
+" OS verification
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+
+" Current user
+let g:current_user = $USER
+let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'tomasr/molokai'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2'
+Plug 'lervag/vimtex'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-ultisnips'
+call plug#end()
+
+" https://github.com/neovim/neovim/issues/583
+set clipboard=unnamed
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" c-j c-k for moving in snippet
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+au BufEnter * call ncm2#enable_for_buffer()
+au User Ncm2Plugin call ncm2#register_source({
+            \ 'name' : 'vimtex',
+            \ 'priority': 1,
+            \ 'subscope_enable': 1,
+            \ 'complete_length': 1,
+            \ 'scope': ['tex'],
+            \ 'mark': 'tex',
+            \ 'word_pattern': '\w+',
+            \ 'complete_pattern': g:vimtex#re#ncm,
+            \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+            \ })
+set completeopt=noinsert,menuone,noselect
+
+" https://github.com/neovim/neovim/issues/583
+set clipboard=unnamed
+
+colorscheme molokai

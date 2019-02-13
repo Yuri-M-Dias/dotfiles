@@ -1,18 +1,18 @@
 " make plug auto-install
 if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-	silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !mkdir -p ~/.vim/backup/ ~/.vim/swap/ ~/.vim/undo/ ~/.vim/session/
 endif
 
 " OS verification
 if !exists("g:os")
-	if has("win64") || has("win32") || has("win16")
-		let g:os = "Windows"
-	else
-		let g:os = substitute(system('uname'), '\n', '', '')
-	endif
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
 endif
 
 " Current user
@@ -136,30 +136,33 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'artur-shaik/vim-javacomplete2'
 
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
-	Plug 'ponko2/deoplete-fish', { 'for': ['fish'] }
-	Plug 'Shougo/neco-vim', { 'for': ['vim'] }
-	Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
-	Plug 'wellle/tmux-complete.vim', { 'for': ['tmux'] }
-	Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'rb'] }
-	Plug 'ujihisa/neco-look'
-	Plug 'zchee/deoplete-jedi', { 'for': ['python', 'py'] }
-	Plug 'Shougo/neopairs.vim'
-	Plug 'Shougo/context_filetype.vim'
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
-	Plug 'Shougo/echodoc.vim'
-	Plug 'sbdchd/neoformat'
-	Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
-	Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
-	Plug 'Shougo/neco-syntax'
-	Plug 'lionawurscht/deoplete-biblatex'
-	Plug 'ncm2/ncm2'
-	Plug 'ncm2/ncm2-ultisnips'
-	Plug 'roxma/nvim-yarp'
-	Plug 'gaalcaras/ncm-R'
-	Plug 'lervag/vimtex'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
+    Plug 'ponko2/deoplete-fish', { 'for': ['fish'] }
+    Plug 'Shougo/neco-vim', { 'for': ['vim'] }
+    Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
+    Plug 'wellle/tmux-complete.vim', { 'for': ['tmux'] }
+    Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby', 'rb'] }
+    Plug 'ujihisa/neco-look'
+    Plug 'zchee/deoplete-jedi', { 'for': ['python', 'py'] }
+    Plug 'Shougo/neopairs.vim'
+    Plug 'Shougo/context_filetype.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'Shougo/echodoc.vim'
+    Plug 'sbdchd/neoformat'
+    Plug 'iamcco/mathjax-support-for-mkdp', { 'for': ['markdown', 'md']}
+    Plug 'iamcco/markdown-preview.vim', { 'for': ['markdown', 'md']}
+    Plug 'Shougo/neco-syntax'
+    Plug 'lionawurscht/deoplete-biblatex'
+    Plug 'ncm2/ncm2'
+    Plug 'ncm2/ncm2-ultisnips'
+    Plug 'roxma/nvim-yarp'
+    Plug 'gaalcaras/ncm-R'
+    Plug 'lervag/vimtex'
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+    Plug 'ncm2/ncm2-ultisnips'
 endif
 
 call plug#end()
@@ -170,103 +173,104 @@ call plug#end()
 
 " Nvim-specific options
 if has('nvim')
-	" Enable truecolors
-	set termguicolors
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#max_list=20
-	let g:deoplete#auto_complete_delay=0
-	let g:deoplete#file#enable_buffer_path=1
-	let g:deoplete#enable_smart_case=1
-	" Use deoplete.
-	let g:tern_request_timeout = 1
-	let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-	" Make ternjs close automatically
-	autocmd CompleteDone * pclose!
-	"Add extra filetypes
-	let g:tern#filetypes = [
-				\ 'jsx',
-				\ 'javascript.jsx',
-				\ 'vue',
-				\ 'javascript',
-				\ 'js'
-				\ ]
-	" Tmuxcomplete use deoplete
-	let g:tmuxcomplete#trigger = ''
-	silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+    " Enable truecolors
+    set termguicolors
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#max_list=20
+    let g:deoplete#auto_complete_delay=0
+    let g:deoplete#file#enable_buffer_path=1
+    let g:deoplete#enable_smart_case=1
+    " Use deoplete.
+    let g:tern_request_timeout = 1
+    let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
+    " Make ternjs close automatically
+    autocmd CompleteDone * pclose!
+    "Add extra filetypes
+    let g:tern#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ 'javascript',
+                \ 'js'
+                \ ]
+    " Tmuxcomplete use deoplete
+    let g:tmuxcomplete#trigger = ''
+    silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
 
-	" Need this to customize deoplete
-	if !exists('g:deoplete#omni#input_patterns')
-		let g:deoplete#omni#input_patterns = {}
-	endif
+    " Need this to customize deoplete
+    if !exists('g:deoplete#omni#input_patterns')
+        let g:deoplete#omni#input_patterns = {}
+    endif
 
-	" Shamelessly copied over, not working here.
-	" https://github.com/lervag/vimtex/blob/f66a54695e5eb2454266746701575db452b3224f/autoload/vimtex/re.vim
-	let g:vimtex#re#deoplete = '\\(?:'
-				\ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-				\ . '|(text|block)cquote\*?(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-				\ . '|(for|hy)\w*cquote\*?{[^}]*}(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
-				\ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
-				\ . '|hyperref\s*\[[^]]*'
-				\ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-				\ . '|(?:include(?:only)?|input)\s*\{[^}]*'
-				\ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-				\ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
-				\ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
-				\ . '|usepackage(\s*\[[^]]*\])?\s*\{[^}]*'
-				\ . '|documentclass(\s*\[[^]]*\])?\s*\{[^}]*'
-				\ . '|\w*'
-				\ .')'
-	let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+    " Shamelessly copied over, not working here.
+    " https://github.com/lervag/vimtex/blob/f66a54695e5eb2454266746701575db452b3224f/autoload/vimtex/re.vim
+    let g:vimtex#re#deoplete = '\\(?:'
+                \ .  '\w*cite\w*(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+                \ . '|(text|block)cquote\*?(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+                \ . '|(for|hy)\w*cquote\*?{[^}]*}(?:\s*\[[^]]*\]){0,2}\s*{[^}]*'
+                \ . '|\w*ref(?:\s*\{[^}]*|range\s*\{[^,}]*(?:}{)?)'
+                \ . '|hyperref\s*\[[^]]*'
+                \ . '|includegraphics\*?(?:\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+                \ . '|(?:include(?:only)?|input)\s*\{[^}]*'
+                \ . '|\w*(gls|Gls|GLS)(pl)?\w*(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+                \ . '|includepdf(\s*\[[^]]*\])?\s*\{[^}]*'
+                \ . '|includestandalone(\s*\[[^]]*\])?\s*\{[^}]*'
+                \ . '|usepackage(\s*\[[^]]*\])?\s*\{[^}]*'
+                \ . '|documentclass(\s*\[[^]]*\])?\s*\{[^}]*'
+                \ . '|\w*'
+                \ .')'
+    let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
-	" Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185
-	let g:deoplete#omni#input_patterns.pandoc= '@\w*'
-	let g:deoplete#omni#input_patterns.rmd= '@\w*'
-	" http://www.galiglobal.com/blog/2017/20170226-Vim-as-Java-IDE-again.html
-	let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
+    " Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185
+    let g:deoplete#omni#input_patterns.pandoc= '@\w*'
+    let g:deoplete#omni#input_patterns.rmd= '@\w*'
+    " http://www.galiglobal.com/blog/2017/20170226-Vim-as-Java-IDE-again.html
+    let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
 
-	call deoplete#custom#option('omni_patterns', {
-				\ 'tex' : g:vimtex#re#deoplete,
-				\ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
-				\ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
-				\ 'java' : ['[^. *\t]\.\w*'],
-				\ 'pandoc': ['@\w*'],
-				\})
+    call deoplete#custom#option('omni_patterns', {
+                \ 'tex' : g:vimtex#re#deoplete,
+                \ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
+                \ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
+                \ 'java' : ['[^. *\t]\.\w*'],
+                \ 'pandoc': ['@\w*'],
+                \})
 
-	" TODO: need to work on these!
+    au User Ncm2Plugin call ncm2#register_source({
+                \ 'name' : 'vimtex',
+                \ 'priority': 1,
+                \ 'subscope_enable': 1,
+                \ 'complete_length': 1,
+                \ 'scope': ['tex'],
+                \ 'matcher': {'name': 'prefix', 'key': 'word'},
+                \ 'mark': 'tex',
+                \ 'word_pattern': '\w+',
+                \ 'complete_pattern': g:vimtex#re#ncm,
+                \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+                \ })
 
-	" https://github.com/Shougo/deoplete.nvim/issues/816
-	" Supposed to make <TAB> completition, but doesn't work!
-	function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
-	endfunction"}}}
-	inoremap <silent><expr> <TAB>
-				\ pumvisible() ? "\<C-n>" :
-				\ <SID>check_back_space() ? "\<TAB>" :
-				\ deoplete#manual_complete()
-
-	" Echodoc config
-	set noshowmode
-	"set cmdheight=2
-	"
-	let g:echodoc#enable_at_startup = 1
-
-	" Necessary for deoplete and other python plugins
-	let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
-	let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
+    " Echodoc config
+    set noshowmode
+    "set cmdheight=2
+    let g:echodoc#enable_at_startup = 1
+    " enable ncm2 for all buffers
+    " IMPORTANT: :help Ncm2PopupOpen for more information
+    set completeopt=noinsert,menuone,noselect
+    " Necessary for deoplete and other python plugins
+    let g:python_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim2/bin/python'
+    let g:python3_host_prog = '/home/' . g:current_user . '/.pyenv/versions/neovim3/bin/python'
 elseif !has('nvim')
-	" Things that neovim removed
-	set nocompatible " be iMproved
-	set ttymouse=xterm2
-	set term=screen-256color
+    " Things that neovim removed
+    set nocompatible " be iMproved
+    set ttymouse=xterm2
+    set term=screen-256color
 endif
 
 set encoding=utf8
 if g:os == "Darwin"
-	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:13
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:13
 elseif g:os == "Linux"
-	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 13
 endif
 
 set shell=/bin/bash
@@ -279,16 +283,18 @@ set relativenumber
 set cursorline
 set hidden
 set laststatus=2
-set autoindent
+"set autoindent
 set backspace=indent,eol,start
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
-set smarttab
+"set smarttab
 set colorcolumn=80
-set wildmenu
+"set wildmenu
+"set wildmode=longest,list,full
+"set wildchar=<tab>
 set scrolloff=10
-set nofoldenable
+"set nofoldenable
 set incsearch
 
 " display indentation guides
@@ -299,12 +305,23 @@ set tabstop=4 shiftwidth=4 sts=4 noet
 set mouse=a
 set showcmd
 
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
+" found' messages
+set shortmess+=c
+
 " http://vim.wikia.com/wiki/Toggle_auto-indenting_for_code_paste
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
 " https://github.com/neovim/neovim/issues/583
 set clipboard=unnamed
+
+" From ncm2-utilsnips
+" c-j c-k for moving in snippet
+let g:UltiSnipsExpandTrigger        = "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
 
 " Plugin configurations
 let g:airline_powerline_fonts=1
@@ -335,15 +352,15 @@ let g:startify_session_sort = 1
 let g:startify_use_env = 1
 let g:startify_fortune_use_unicode = 1
 let g:startify_session_before_save = [
-			\ 'echo "Cleaning up before saving.."',
-			\ 'silent! NERDTreeTabsClose'
-			\ ]
+            \ 'echo "Cleaning up before saving.."',
+            \ 'silent! NERDTreeTabsClose'
+            \ ]
 let g:startify_custom_header = startify#fortune#boxed()
 
 " UltiSnips configuration
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsExpandTrigger="<TAB>"
+"let g:UltiSnipsJumpForwardTrigger="<TAB>"
+"let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
 " NERDTree configuration
 let NERDTreeShowHidden=1
@@ -352,13 +369,13 @@ let NERDTreeShowHidden=1
 "let g:neomake_open_list = 2
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_warning_sign = {
-			\ 'text': '!',
-			\ 'texthl': 'WarningMsg',
-			\ }
+            \ 'text': '!',
+            \ 'texthl': 'WarningMsg',
+            \ }
 let g:neomake_error_sign = {
-			\ 'text': '×',
-			\ 'texthl': 'ErrorMsg',
-			\ }
+            \ 'text': '×',
+            \ 'texthl': 'ErrorMsg',
+            \ }
 
 " Fix for https://github.com/neomake/neomake/issues/1777
 let g:neomake_shellcheck_args = ['-fgcc']
@@ -396,15 +413,6 @@ nnoremap <leader>d :w<CR>:bd<CR>
 " forget about it
 nnoremap <leader>x :bd!<CR>
 
-" THIS NEVER WORKED.
-" Navigation like a Browser, but for buffers.
-"nnoremap <C-S-tab> :bp<CR>
-"nnoremap <C-tab>   :bn<CR>
-"nnoremap <C-t>     :tabnew<CR>
-"inoremap <C-S-tab> <Esc>:bp<CR>i
-"inoremap <C-tab>   <Esc>:bn<CR>i
-"inoremap <C-t>     <Esc>:tabnew<CR>
-
 " previous buffer
 nnoremap <C-H> :bp<CR>
 " next buffer
@@ -415,15 +423,15 @@ nnoremap <leader><up> ddkP
 " move one line down
 nnoremap <leader><down> ddp
 
-"vmap <C-c> "*y     " Yank current selection into system clipboard
-"nmap <C-c> "*Y     " Yank current line into system clipboard (if nothing is selected)
-"nmap <C-v> "*p     " Paste from system clipboard
-"
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
 
-" R plugin configuration
-"vmap <Space> <Plug>RDSendSelection
-"nmap <Space> <Plug>RDSendLine
-"
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Displays the current leader mappings
 "https://github.com/liuchengxu/vim-which-key
@@ -433,19 +441,19 @@ nnoremap <silent> <localleader> :<c-u>WhichKey '\'<CR>
 " TODO: get the full path and just pass that to inf_mr
 " Returns the current filename
 function! s:getCurrentFileName() abort "{{{
-	return expand('%:t')
+    return expand('%:t')
 endfunction"}}}
 
 " Makes xaringan use the current file
 
 let g:xaringan#sendCmd = 'xaringan::inf_mr(moon = paste0(getwd(), "/'
-			\ . <SID>getCurrentFileName()
-			\ . '"))'
+            \ . <SID>getCurrentFileName()
+            \ . '"))'
 
 " Custom keybind
 nnoremap <silent> <LocalLeader>rx
-			\ :call g:SendCmdToR(g:xaringan#sendCmd)
-			\ <CR>
+            \ :call g:SendCmdToR(g:xaringan#sendCmd)
+            \ <CR>
 
 " Don't use Ex mode, use Q for formatting
 "nnoremap Q <Esc>gg=G<Esc>
@@ -465,6 +473,12 @@ autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --s
 " Makes java use javaComplete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
+" really only for neovim
+autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd FileType tex
+            \ call deoplete#custom#buffer_option('auto_complete', v:false)
+
+
 " Sort-of-autoreload for Rmarkdown...
 " Only activate when necessary!
 " TODO: make a plugin out of this, it's the perfect opportunity!
@@ -474,9 +488,9 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 "autocmd! BufWritePost,BufEnter * Neomake
 
 call neomake#configure#automake({
-			\ 'BufWritePost': {'delay': 200},
-			\ 'BufWinEnter': {'delay': 1000},
-			\ }, 500)
+            \ 'BufWritePost': {'delay': 200},
+            \ 'BufWinEnter': {'delay': 1000},
+            \ }, 500)
 
 " Auto-closes R
 autocmd! VimLeave * if exists("g:SendCmdToR") && string(g:SendCmdToR) != "function('SendCmdToR_fake')" | call RQuit("nosave") | endif
