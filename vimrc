@@ -417,9 +417,9 @@ inoremap <c-c> <ESC>
 
 " Press enter key to trigger snippet expansion
 " The parameters are the same as `:help feedkeys()`
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+"inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "")
 "inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+inoremap <silent> <buffer> <expr> <CR> ncm2_ultisnips#expand_or("", 'n')
 
 " Use <TAB> to select the popup menu:
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -556,4 +556,5 @@ command! LastRevision :r !git show HEAD^1:%
 " Open hex visualization
 command! ViewHex :% ! xxd
 command! CloseHex :% ! xxd -r
+
 
