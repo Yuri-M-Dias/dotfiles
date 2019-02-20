@@ -311,35 +311,46 @@ set pastetoggle=<F2>
 " https://github.com/neovim/neovim/issues/583
 set clipboard=unnamed
 
-" From ncm2-utilsnips
-" c-j c-k for moving in snippet
+" =====================================================
+" Plugin configurations
+
+" From ncm2-utilsnips, and also for utilsnips
+" c-j c-k for moving in snippet, in practice <TAB> works
 let g:UltiSnipsExpandTrigger        = "<Plug>(ultisnips_expand)"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger  = "<c-k>"
 let g:UltiSnipsRemoveSelectModeMappings = 0
 
-" Plugin configurations
+" Airline configurations
 let g:airline_powerline_fonts=1
 let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols='unicode'
 
+" Ctrlp cache home, however might cause problems
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
-" The maintainer won't maintain the tmux integration anymore...
+"====== Nvim-R options=====
+" The maintainer won't support the tmux integration anymore...
 let g:R_in_buffer = 0
 let g:R_applescript = 0
 "
-" Workaround... can't find the issue now...
+" Workaround... can't find the issue now, but needed for tmux splits to work
 let g:R_source=$HOME.'/.config/nvim/opt/tmux_split.vim'
-
 " Ensures usage of your own ~/.tmux.conf file
 let g:R_notmuxconf = 1
 
-" Zathura sucks.
-let R_openpdf = 1
-let g:R_pdfviewer = 'evince'
+" Only opens PDF is X is working
+if $DISPLAY != ""
+   let R_openpdf = 1
+endif
 
+" Zathura sucks.
+let g:R_pdfviewer = 'evince'
+" Clears line before sending commands to R's console
+let g:R_clear_line = 1
+
+"==================
 " Startify sessions configurations
 let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
