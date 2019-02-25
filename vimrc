@@ -347,13 +347,16 @@ let g:R_notmuxconf = 1
 
 " Only opens PDF is X is working
 if $DISPLAY != ""
-   let R_openpdf = 1
+   let g:R_openpdf = 1
 endif
 
 " Zathura sucks.
 let g:R_pdfviewer = 'evince'
 " Clears line before sending commands to R's console
 let g:R_clear_line = 1
+
+" Type _ twice for it to turn into a ->
+let R_assign = 2
 
 "==================
 " Startify sessions configurations
