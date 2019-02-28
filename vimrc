@@ -327,7 +327,7 @@ let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#wordcount#filetypes =
-    \ ['help', 'markdown', 'rst', 'org', 'text',
+    \ ['help', 'markdown', 'rst', 'org', 'text', 'md',
     \ 'asciidoc', 'tex', 'mail', 'rmarkdown', 'rmd'
     \ ]
 let g:Powerline_symbols='unicode'
