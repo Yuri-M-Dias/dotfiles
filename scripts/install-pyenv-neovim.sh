@@ -3,11 +3,16 @@
 #TODO: NOT WORKING RIGHT NOW
 sudo -v
 
-pyenv install 2.7.11
-pyenv install 3.4.4
+#curl https://pyenv.run | bash
 
-pyenv virtualenv 2.7.11 neovim2
-pyenv virtualenv 3.4.4 neovim3
+PY2="2.7.16"
+PY3="3.7.3"
+
+pyenv install $PY2
+pyenv install $PY3
+
+pyenv virtualenv $PY2 neovim2
+pyenv virtualenv $PY3 neovim3
 
 pyenv activate neovim2
 pip install neovim

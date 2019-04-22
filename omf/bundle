@@ -1,4 +1,5 @@
 package android-sdk
+package config
 package foreign-env
 package fzf
 package nvm
