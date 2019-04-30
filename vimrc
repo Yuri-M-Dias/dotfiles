@@ -404,6 +404,9 @@ let g:neoformat_try_formatprg = 1
 " R.vim is also absolutely dreadful
 let g:polyglot_disabled = ['latex', 'r-lang']
 
+" Vimtex options
+let g:vimtex_quickfix_autoclose_after_keystrokes = 2
+
 colorscheme molokai
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
