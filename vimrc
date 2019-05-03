@@ -335,7 +335,9 @@ let g:Powerline_symbols='unicode'
 
 " Ctrlp cache home, however might cause problems
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
+let g:ctrlp_show_hidden=1
 
+" Just wanted to ignore the latex .aux files
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|aux)$',
