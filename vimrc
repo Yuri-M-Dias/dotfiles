@@ -336,6 +336,11 @@ let g:Powerline_symbols='unicode'
 " Ctrlp cache home, however might cause problems
 let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|aux)$',
+  \ }
+
 "====== Nvim-R options=====
 " The maintainer won't support the tmux integration anymore...
 let g:R_in_buffer = 0
