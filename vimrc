@@ -414,6 +414,9 @@ let g:polyglot_disabled = ['latex', 'r-lang']
 " Vimtex options
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 
+" Grammarous configs
+let g:grammarous#use_vim_spelllang = 1
+
 colorscheme molokai
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
