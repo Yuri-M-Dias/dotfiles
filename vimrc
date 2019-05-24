@@ -491,6 +491,9 @@ autocmd BufNewFile,BufRead *.jade set ft=pug
 autocmd BufNewFile,BufRead *.fish set ft=fish
 "autocmd BufNewFile,BufRead *.cpp nnoremap <leader>b :!g++ %
 "autocmd BufNewFile,BufRead *.rb nnoremap <leader>b :!bundle ...
+" Auto-spell
+autocmd BufRead,BufNewFile *.md,*.Rmd,*.tex setlocal spell
+
 autocmd FileType python setlocal et
 
 " Autoformat helper
