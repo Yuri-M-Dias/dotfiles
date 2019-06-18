@@ -93,7 +93,8 @@ alias gcv="git commit -v"
 alias gtash="git stash"
 alias gtasha="git stash apply"
 alias gtashl="git stash list"
-
+# Tags
+alias gtls="git tag -l --color"
 # Git status
 alias gst="git status -sb --ignore-submodules"
 alias gss="git status"
@@ -109,10 +110,12 @@ alias glg="git lg"
 alias glagp="git lagp"
 # Merge
 alias gmnff="git merge --no-ff"
+# Pushes
 alias gptg="git push --tags"
-alias gp="git push --verbose"
+alias gp="git push --tags --verbose"
 # Pushes only the current branch
 alias gpuoh="git push origin HEAD"
+# Resets
 alias grs="git reset --soft"
 alias grh="git reset --hard"
 alias grHEAD="git reset HEAD"
@@ -128,7 +131,7 @@ alias gcho="git checkout"
 alias gchpk="git cherry-pick"
 # From Remote
 alias gplom="git pull origin master"
-alias gplr="git pull --rebase -v"
+alias gplr="git pull --rebase --all -v"
 alias gfo="git fetch origin -v"
 alias gfop="git fetch origin --prune -v"
 alias gclo="git clone"
@@ -178,7 +181,7 @@ alias @dopll="@do pull"
 ################################
 ###  My common files shortcuts
 ################################
-#TODO: make these into some sort of ambient variable
+#TODO: make these into some sort of ambient variable?
 alias @dev="cd ~/Dev"
 alias @dot="cd ~/dotfiles"
 alias @wiki="cd ~/vimwiki"
