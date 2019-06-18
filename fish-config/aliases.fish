@@ -112,7 +112,7 @@ alias glagp="git lagp"
 alias gmnff="git merge --no-ff"
 # Pushes
 alias gptg="git push --tags"
-alias gp="git push --tags --verbose"
+alias gp="git push --follow-tags --verbose"
 # Pushes only the current branch
 alias gpuoh="git push origin HEAD"
 # Resets
