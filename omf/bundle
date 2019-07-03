@@ -2,6 +2,7 @@ package android-sdk
 package config
 package foreign-env
 package fzf
+package https://github.com/Yuri-M-Dias/omf-platformio
 package nvm
 package pyenv
 package python
