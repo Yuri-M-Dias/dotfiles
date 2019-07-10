@@ -500,7 +500,17 @@ autocmd BufRead,BufNewFile *.md,*.Rmd,*.tex setlocal spell
 autocmd FileType python setlocal et
 
 " Autoformat helper
-autocmd FileType javascript set formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+"autocmd FileType javascript set formatprg=prettier\ --stdin\ --single-quote\ --trailing-comma\ es5
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript setlocal formatprg=prettier\
+                                             \--stdin\
+                                             \--print-width\ 80\
+                                             \--single-quote\
+                                             \--trailing-comma\ es5\
+                                             \--tab-width\ 2
+    "autocmd BufWritePre *.js Neoformat
+augroup END
 
 " Makes java use javaComplete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
