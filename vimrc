@@ -173,7 +173,7 @@ if has('nvim')
     Plug 'ncm2/ncm2-neoinclude' | Plug 'Shougo/neoinclude.vim'
     Plug 'ncm2/ncm2-github'
     Plug 'ncm2/ncm2-markdown-subscope'
-    Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
+    "Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     Plug 'fgrsnau/ncm2-aspell'
 endif
 
