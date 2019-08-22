@@ -22,6 +22,10 @@ alias lsd='ls -la | grep "^d"'
 alias ll='ls -ahlF'
 alias l='ls -CF'
 
+# Filter Df to only physical drives
+alias dff='df --type btrfs --type ext4 --type ext3 --type ext2 --type vfat --type iso9660 -H'
+
+# Apt commands
 alias apt="sudo apt"
 alias aptU="apt update"
 alias aptI="apt install"
