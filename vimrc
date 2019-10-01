@@ -497,7 +497,12 @@ autocmd BufNewFile,BufRead *.fish set ft=fish
 " Auto-spell
 autocmd BufRead,BufNewFile *.md,*.Rmd,*.tex setlocal spell
 
-autocmd FileType python setlocal et
+" Sort-of-autoreload for Rmarkdown...
+augroup AutocompileRmdFiles
+    autocmd!
+    " Autocompile Rmd files?
+    autocmd BufWritePost *.Rmd call RMakeRmd("default")
+augroup END
 
 " Autoformat helper
 "autocmd FileType javascript set formatprg=prettier\ --stdin\ --single-quote\ --trailing-comma\ es5
@@ -510,6 +515,7 @@ augroup NeoformatAutoFormat
                                              \--trailing-comma\ es5\
                                              \--tab-width\ 2
     "autocmd BufWritePre *.js Neoformat
+    autocmd FileType python setlocal et
 augroup END
 
 " Makes java use javaComplete
@@ -577,11 +583,6 @@ augroup my_cm_setup
                 \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
                 \ })
 augroup END
-
-" Sort-of-autoreload for Rmarkdown...
-" Only activate when necessary!
-" TODO: make a plugin out of this, it's the perfect opportunity!
-" autocmd! BufWritePost *.Rmd call RMakeRmd("default")
 
 " Triggers neomake
 "autocmd! BufWritePost,BufEnter * Neomake
