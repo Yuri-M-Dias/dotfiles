@@ -22,7 +22,8 @@ options(
 
 # This is hardcoded, but shouldn't be!!!!
 Sys.setenv(
-    RETICULATE_PYTHON = '/home/yuri/.pyenv/versions/anaconda3-5.2.0/envs/r-tensorflow/bin/python'
+    #RETICULATE_PYTHON = '/home/yuri/.pyenv/versions/anaconda3-5.2.0/envs/r-tensorflow/bin/python'
+    RETICULATE_PYTHON = '/home/yuri/.pyenv/versions/miniconda3-latest/envs/r-reticulate/bin/python'
 )
 
 Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
