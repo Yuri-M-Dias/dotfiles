@@ -1,32 +1,33 @@
 [core]
-	autocrlf = input
-	editor = vim
-	whitespace = warn
+    autocrlf = input
+    editor = vim
+    whitespace = warn
 [user]
-	name = "Yuri-M-Dias"
-	email = "yurimathe.yp@gmail.com"
-	signingkey = DE197A9D3A09177A
+    name = "Yuri-M-Dias"
+    email = "yurimathe.yp@gmail.com"
+    signingkey = DE197A9D3A09177A
 
 # Commit messages template
 [commit]
-	template = ~/.gitmessage
+	template = /home/yuri/.gitmessage
+
 # Credential cache
 [credential]
-	helper = cache
+    helper = cache
 # Matches local branchName with origin/branchName by default
 [push]
-	default = simple
+    default = simple
 # Forces GitHub to use my user
 [url "https://Yuri-M-Dias@github.com"]
-	insteadOf = https://github.com
+    insteadOf = https://github.com
 
 [alias]
-	prettyTree = log --pretty=oneline --graph --decorate --all
-	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-	lg = !"git lg1"
-	lagp = log --all --graph --pretty=format:'%C(auto)%h%C(auto)%d %s %C(dim white)(%aN, %ar)'
-	ignore = update-index --assume-unchanged
-	unignore = update-index --no-assume-unchanged
-	ignored = !git ls-files -v | grep "^[[:lower:]]"
+    prettyTree = log --pretty=oneline --graph --decorate --all
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+    lagp = log --all --graph --pretty=format:'%C(auto)%h%C(auto)%d %s %C(dim white)(%aN, %ar)'
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep "^[[:lower:]]"
 
