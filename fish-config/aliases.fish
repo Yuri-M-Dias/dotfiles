@@ -138,6 +138,7 @@ alias gplom="git pull origin master"
 alias gplr="git pull --rebase --all -v"
 alias gfo="git fetch origin -v"
 alias gfop="git fetch origin --prune -v"
+alias gfa="git fetch --all -v --prune"
 alias gclo="git clone"
 
 # Since git doesn't seem to provide a profiling alternative...
