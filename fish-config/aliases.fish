@@ -199,4 +199,5 @@ alias @tsys="tail /var/log/syslog"
 alias @tfsys="tailf /var/log/syslog"
 
 # Easier to just remember how it works
-alias @nvimPlugInstall="nvim +PlugInstall +PlugClean +q"
+alias @nvimPlugInstall="nvim +PlugInstall +PlugClean +UpdateRemotePlugins +qa"
+
