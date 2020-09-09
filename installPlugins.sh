@@ -26,7 +26,7 @@ sudo apt-get install \
 	autotools-dev automake ncurses-dev \
 	clang cmake clang-format exuberant-ctags \
 	python-setuptools python3-setuptools neovim \
-	uncrustify \
+	uncrustify expect \
 	-y --verbose-versions
 
 # Ubuntu 16.04

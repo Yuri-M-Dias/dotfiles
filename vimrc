@@ -175,6 +175,12 @@ if has('nvim')
     Plug 'ncm2/ncm2-markdown-subscope'
     "Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     Plug 'fgrsnau/ncm2-aspell'
+    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+    Plug 'autozimu/LanguageClient-neovim', {
+                \ 'branch': 'next',
+                \ 'do': 'bash install.sh',
+                \ }
+
 endif
 
 call plug#end()
@@ -330,10 +336,10 @@ let g:airline_theme='bubblegum'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#wordcount#filetypes =
-    \ ['help', 'markdown', 'rst', 'org', 'text',
-    \ 'asciidoc', 'tex', 'mail', 'rmarkdown', 'rmd',
-    \ 'md', 'vimwiki'
-    \ ]
+            \ ['help', 'markdown', 'rst', 'org', 'text',
+            \ 'asciidoc', 'tex', 'mail', 'rmarkdown', 'rmd',
+            \ 'md', 'vimwiki'
+            \ ]
 let g:Powerline_symbols='unicode'
 
 " Ctrlp cache home, however might cause problems
@@ -342,9 +348,9 @@ let g:ctrlp_show_hidden=1
 
 " Just wanted to ignore the latex .aux files
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|aux)$',
-  \ }
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll|aux)$',
+            \ }
 
 "====== Nvim-R options=====
 " The maintainer won't support the tmux integration anymore...
@@ -358,7 +364,7 @@ let g:R_notmuxconf = 1
 
 " Only opens PDF is X is working
 if $DISPLAY != ""
-   let g:R_openpdf = 1
+    let g:R_openpdf = 1
 endif
 
 " Zathura sucks.
@@ -509,11 +515,11 @@ augroup END
 augroup NeoformatAutoFormat
     autocmd!
     autocmd FileType javascript setlocal formatprg=prettier\
-                                             \--stdin\
-                                             \--print-width\ 80\
-                                             \--single-quote\
-                                             \--trailing-comma\ es5\
-                                             \--tab-width\ 2
+                \--stdin\
+                \--print-width\ 80\
+                \--single-quote\
+                \--trailing-comma\ es5\
+                \--tab-width\ 2
     "autocmd BufWritePre *.js Neoformat
     autocmd FileType python setlocal et
 augroup END
