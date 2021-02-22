@@ -23,7 +23,7 @@ alias ll='ls -ahlF'
 alias l='ls -CF'
 
 # Filter Df to only physical drives
-alias dff='df --type btrfs --type ext4 --type ext3 --type ext2 --type vfat --type iso9660 -H'
+alias dff='df --type btrfs --type ext4 --type ext3 --type ext2 --type vfat --type iso9660 --type fuseblk -H'
 
 # Apt commands
 alias apt="sudo apt"

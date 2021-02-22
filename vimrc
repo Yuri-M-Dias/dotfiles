@@ -15,6 +15,11 @@ if !exists("g:os")
     endif
 endif
 
+" Have to be here becayse polyglot is stupid
+" Disable polyglot's latex support, in favor of VimTex.
+" R.vim is also absolutely dreadful
+let g:polyglot_disabled = ['latex', 'r-lang']
+
 " Current user
 let g:current_user = $USER
 
@@ -175,7 +180,8 @@ if has('nvim')
     Plug 'ncm2/ncm2-markdown-subscope'
     "Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
     Plug 'fgrsnau/ncm2-aspell'
-    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
+    " Stupid .log file that I do not need
+    "Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins', 'for': ['cpp', 'c'] }
     Plug 'autozimu/LanguageClient-neovim', {
                 \ 'branch': 'next',
                 \ 'do': 'bash install.sh',
@@ -195,10 +201,14 @@ if has('nvim')
     set termguicolors
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#max_list=20
-    let g:deoplete#auto_complete_delay=0
-    let g:deoplete#file#enable_buffer_path=1
-    let g:deoplete#enable_smart_case=1
+    call deoplete#custom#option({
+                \ 'max_list': 20,
+                \ 'auto_complete_delay': 50,
+                \ 'smart_case': v:true,
+                \ })
+    call deoplete#custom#var('file', {
+                \ 'enable_buffer_path': v:true,
+                \})
     " Use deoplete.
     let g:tern_request_timeout = 1
     let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
@@ -214,13 +224,6 @@ if has('nvim')
                 \ ]
     " Tmuxcomplete use the default completition manager
     let g:tmuxcomplete#trigger = ''
-    silent! call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
-
-    " Need this to customize deoplete
-    if !exists('g:deoplete#omni#input_patterns')
-        let g:deoplete#omni#input_patterns = {}
-    endif
-
     " Shamelessly copied over, not working here.
     " https://github.com/lervag/vimtex/blob/f66a54695e5eb2454266746701575db452b3224f/autoload/vimtex/re.vim
     let g:vimtex#re#deoplete = '\\(?:'
@@ -238,15 +241,9 @@ if has('nvim')
                 \ . '|documentclass(\s*\[[^]]*\])?\s*\{[^}]*'
                 \ . '|\w*'
                 \ .')'
-    let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
-
     " Doesn't work out of the box... https://github.com/vim-pandoc/vim-pandoc/issues/185
-    let g:deoplete#omni#input_patterns.pandoc= '@\w*'
-    let g:deoplete#omni#input_patterns.rmd= '@\w*'
     " http://www.galiglobal.com/blog/2017/20170226-Vim-as-Java-IDE-again.html
-    let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
-
-    call deoplete#custom#option('omni_patterns', {
+    call deoplete#custom#var('omni', 'input_patterns', {
                 \ 'tex' : g:vimtex#re#deoplete,
                 \ 'r' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*'],
                 \ 'rmd' : ['[^. *\t]\.\w*', '\h\w*::\w*', '\h\w*\$\w*', '@\w*'],
@@ -416,9 +413,6 @@ let g:neoformat_basic_format_trim = 1
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 
-" Disable polyglot's latex support, in favor of VimTex.
-" R.vim is also absolutely dreadful
-let g:polyglot_disabled = ['latex', 'r-lang']
 
 " Vimtex options
 let g:vimtex_quickfix_autoclose_after_keystrokes = 2
