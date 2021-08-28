@@ -46,6 +46,7 @@ ln -sfn "$DOTFILES/Rprofile" ~/.Rprofile
 echo "Adding MPV.conf"
 mkdir -p ~/.config/mpv/
 ln -sfn "$DOTFILES/mpv.conf" ~/.config/mpv/mpv.conf
+ln -sfn "$DOTFILES/input.conf" ~/.config/mpv/input.conf
 
 # Symlinks nvim
 echo "Symlinking Neovim"
