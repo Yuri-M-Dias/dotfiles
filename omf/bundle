@@ -9,6 +9,7 @@ package python
 package rails
 package rustup
 package rvm
+package sdk
 package virtualfish
 theme bobthefish
 theme default

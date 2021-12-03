@@ -1,6 +1,5 @@
 #!/bin/bash
-# Updated to work with Ubuntu 16.04 and kernel 4.4.x
-#TODO: this file is a clusterfuck. Use functions, for Stallman's sake!
+# Updated to work with Ubuntu 20.04
 
 set -e
 sudo -v
@@ -10,48 +9,141 @@ echo "Executing on $DOTFILES"
 
 source "./scripts/common-script-functions.sh"
 
-echo 'Adding necessary repositories'
-sudo apt-add-repository ppa:fish-shell/release-2 -y
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
+# No longer needed
+#echo 'Adding necessary repositories'
+#sudo apt-add-repository ppa:fish-shell/release-2 -y
+#sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
 echo 'Installing dependencies'
 sudo apt-get update -y
 #TODO: separate the libs/tools/programming languages here
 
-# Ubuntu 18.04
-sudo apt-get install \
-	python2.7-dev python3-dev zsh silversearcher-ag \
-	libevent-dev markdown vim vim-nox \
-	gcc gfortran g++ curl fish wget \
-	autotools-dev automake ncurses-dev \
-	clang cmake clang-format exuberant-ctags \
-	python-setuptools python3-setuptools neovim \
-	uncrustify expect \
-	-y --verbose-versions
+#sudo apt install \
+#intel-basekit libgtk-3-0 libasound2 libxss1 libnss3 wireshark \
 
-# Ubuntu 16.04
-#sudo apt-get install \
-	#python2.7-dev python3.5-dev zsh silversearcher-ag \
-	#libevent-dev markdown vim vim-nox \
-	#gcc gfortran g++ curl fish wget \
-	#autotools-dev automake ncurses-dev \
-	#clang-3.5 cmake clang-format-3.5 exuberant-ctags \
-	#python-setuptools python3-setuptools neovim \
-	#uncrustify \
-	#-y --verbose-versions
+sudo apt install \
+    python2.7-dev python3-dev zsh silversearcher-ag \
+    libevent-dev markdown vim vim-nox \
+    gcc gfortran g++ curl fish wget \
+    autotools-dev automake ncurses-dev \
+    clang cmake clang-format exuberant-ctags \
+    python-setuptools python3-setuptools neovim \
+    uncrustify expect neovim tmux \
+    scrcpy \
+    iperf \
+    ibus-anthy \
+    ibus-mozc \
+    fcitx-mozc \
+    cpuid \
+    screenfetch \
+    libfreetype6:i386 \
+    libfreetype6 \
+    lutris \
+    deskreen \
+    handbrake \
+    youtube-dl \
+    jq \
+    google-chrome-stable \
+    megatools \
+    protobuf-compiler \
+    colordiff \
+    bless \
+    ghex \
+    xclip \
+    libbluetooth-dev \
+    python3-dev \
+    solaar \
+    freeglut3-dev \
+    piper \
+    gnome-clocks \
+    wxhexeditor \
+    hexedit \
+    okular \
+    rxp \
+    dos2unix \
+    ttfautohint \
+    kazam \
+    memtester \
+    sysstat \
+    pgloader \
+    pgadmin3 \
+    flameshot \
+    libgit2-dev \
+    postgresql-client-common \
+    libvulkan1 \
+    vulkan-utils \
+    mesa-vulkan-drivers \
+    mesa-vulkan-drivers:i386 \
+    meson \
+    libsystemd-dev \
+    pkg-config \
+    ninja-build \
+    libdbus-1-dev \
+    libinih-dev \
+    expect \
+    kdenlive \
+    openshot \
+    nmap \
+    fritzing \
+    fritzing-data \
+    fritzing-parts \
+    valgrind \
+    atop \
+    optipng \
+    linux-cloud-tools-generic \
+    linux-tools-generic \
+    texlive-fonts-recommended \
+    green-recorder \
+    streamlink \
+    fortune-mod \
+    net-tools \
+    inotify-tools \
+    whois \
+    green-recorder \
+    libvulkan1 \
+    libudunits2-dev \
+    smartmontools \
+    peek \
+    socat \
+    libcurl4 \
+    pinta \
+    tree \
+    unrar \
+    uim-mozc \
+    latexdiff \
+    xournalpp \
+    openvpn \
+    cmake \
+    editorconfig \
+    speedtest-cli \
+    util-linux \
+    procps \
+    hostapd \
+    iproute2 \
+    iw \
+    wireless-tools \
+    haveged \
+    iptables \
+    dnsmasq \
+    timeshift \
+    libpq-dev \
+    xdotool \
+    gnome-screensaver \
+    ntfs-3g ntfs-3g-dev \
+    gparted \
+    fonts-takao fonts-dejima-mincho fonts-horai-umefont \
+    mpv \
+    deluged \
+    nethogs \
+    docker-ce \
+    apt-transport-https \
+    ca-certificates \
+    software-properties-common \
+    bumblebee \
+    mesa-utils \
+    -y --verbose-versions
 
-echo "Ok!"
-read
-
-echo 'Update tmux, compiling from source'
-TMUX_SRC="~/tmux"
-gitCloneIfNecessary https://github.com/tmux/tmux.git "$TMUX_SRC"
-cd "$TMUX_SRC"
-sh autogen.sh
-./configure && make
-[ -f "./$TMUX_SRC" ] && sudo mv "./$TMUX_SRC" /usr/bin/
-cd -
-
+echo "###############################################"
 echo 'Install tmux plugin manager'
 gitCloneIfNecessary https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 
@@ -67,7 +159,6 @@ source "$DOTFILES/symlinks.sh"
 
 echo 'Cleaning up...'
 rm -Rf fonts/
-rm -Rf tmux/
 
 echo 'Installing vim plugins'
 nvim +PlugInstall +q +q

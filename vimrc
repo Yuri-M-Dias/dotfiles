@@ -28,7 +28,7 @@ call plug#begin('~/.vim/plugged')
 
 " Git utilities
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 " GitHub integration
 Plug 'tpope/vim-rhubarb'
 " Better integration with tmux
@@ -169,6 +169,7 @@ if has('nvim')
     Plug 'roxma/nvim-yarp'
     Plug 'gaalcaras/ncm-R'
     Plug 'lervag/vimtex'
+    Plug 'kg8m/vim-simple-align' " Adds alignment helper
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
     Plug 'ncm2/ncm2-ultisnips'
