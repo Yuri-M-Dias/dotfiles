@@ -38,8 +38,6 @@ sudo apt install \
     screenfetch \
     libfreetype6:i386 \
     libfreetype6 \
-    lutris \
-    deskreen \
     handbrake \
     youtube-dl \
     jq \
@@ -93,13 +91,11 @@ sudo apt install \
     linux-cloud-tools-generic \
     linux-tools-generic \
     texlive-fonts-recommended \
-    green-recorder \
     streamlink \
     fortune-mod \
     net-tools \
     inotify-tools \
     whois \
-    green-recorder \
     libvulkan1 \
     libudunits2-dev \
     smartmontools \
@@ -111,7 +107,6 @@ sudo apt install \
     unrar \
     uim-mozc \
     latexdiff \
-    xournalpp \
     openvpn \
     cmake \
     editorconfig \
@@ -135,7 +130,6 @@ sudo apt install \
     mpv \
     deluged \
     nethogs \
-    docker-ce \
     apt-transport-https \
     ca-certificates \
     software-properties-common \
