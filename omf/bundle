@@ -1,5 +1,4 @@
 package android-sdk
-package apt
 package config
 package foreign-env
 package fzf

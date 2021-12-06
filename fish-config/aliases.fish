@@ -26,13 +26,16 @@ alias l='ls -CF'
 alias dff='df --type btrfs --type ext4 --type ext3 --type ext2 --type vfat --type iso9660 --type fuseblk -H'
 
 # Apt commands
-alias apt="sudo apt"
-alias aptU="apt update"
-alias aptI="apt install"
-alias aptRm="apt remove"
-alias aptUpg="apt update; and apt upgrade"
-alias aptLs="apt list"
-alias aptLsUp="aptLs --upgradable"
+function apt --description "apt shortcut"
+    command apt $argv
+end
+alias @apt="sudo apt"
+alias aptU="@apt update"
+alias aptI="@apt install"
+alias aptRm="@apt remove"
+alias aptUpg="@apt update; and apt upgrade"
+alias aptLs="@apt list"
+alias aptLsUp="@aptLs --upgradable"
 
 alias getmyip='dig +short myip.opendns.com @resolver(shuf -i 1-4 -n 1).opendns.com'
 alias scanOpenPorts="nmap -sT -p-"
@@ -74,7 +77,10 @@ alias resetNetwork="sudo service network-manager restart"
 ################################
 ###  File ShortCut
 ################################
-alias g="git"
+#alias g="git"
+function g --description "Git shortcut"
+    command g $argv
+end
 
 ################################
 ###  Program ShortCut
@@ -141,9 +147,6 @@ alias gfop="git fetch origin --prune -v"
 alias gfa="git fetch --all -v --prune"
 alias gclo="git clone"
 
-# Since git doesn't seem to provide a profiling alternative...
-alias addGitUserMain="git config user.name 'Yuri-M-Dias'; and git config user.email 'yurimathe.yp@gmail.com'"
-
 #####
 # Grails and Groovy shortcuts: @gra
 #####
@@ -200,4 +203,3 @@ alias @tfsys="tailf /var/log/syslog"
 
 # Easier to just remember how it works
 alias @nvimPlugInstall="nvim +PlugInstall +PlugClean +UpdateRemotePlugins +qa"
-
