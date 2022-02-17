@@ -16,6 +16,11 @@ echo 'Installing Docker'
 curl -fsSL get.docker.com -o get-docker.sh
 sh get-docker.sh
 
+echo "Installing Rustup and Rust"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# TODO: rust toolchains?
+cargo install exa
+
 # Vagrant
 
 # Programming languages
@@ -23,7 +28,7 @@ sh get-docker.sh
 # Both pythons with PyPi and Virtualenv
 
 echo 'Installing NVM'
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 #TODO: optional?
 echo 'Installing RVM with Rails'

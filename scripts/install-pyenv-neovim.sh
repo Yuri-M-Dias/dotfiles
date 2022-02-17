@@ -1,12 +1,12 @@
 #!/bin/bash
 #set -e
-#TODO: NOT WORKING RIGHT NOW
+# Yeah, this needs work to properly finish, lol
 sudo -v
 
 #curl https://pyenv.run | bash
 
 PY2="2.7.16"
-PY3="3.7.3"
+PY3="3.10.2"
 
 pyenv install $PY2
 pyenv install $PY3
