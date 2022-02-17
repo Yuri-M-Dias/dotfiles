@@ -144,6 +144,9 @@ Plug 'artur-shaik/vim-javacomplete2'
 " Number of matches
 Plug 'google/vim-searchindex'
 
+" Sublime Text-style multiline commands
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript', 'javascript.jsx'] }
