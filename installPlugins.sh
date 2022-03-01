@@ -49,7 +49,6 @@ sudo apt install \
     ghex \
     xclip \
     libbluetooth-dev \
-    python3-dev \
     solaar \
     freeglut3-dev \
     piper \
@@ -148,6 +147,8 @@ sudo apt install \
     libffi-dev \
     liblzma-dev \
     mesa-utils \
+    bluez \
+    python3-bluez \
     -y --verbose-versions
 
 echo "###############################################"
