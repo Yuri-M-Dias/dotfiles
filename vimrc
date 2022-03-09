@@ -110,7 +110,7 @@ Plug 'chrisbra/csv.vim', { 'for': ['csv'] }
 
 " Color themes
 Plug 'tomasr/molokai'
-"Plug 'tpope/vim-vividchalk'
+Plug 'tpope/vim-vividchalk'
 
 "Hexeditor!
 Plug 'Shougo/vinarise.vim'
@@ -146,6 +146,9 @@ Plug 'google/vim-searchindex'
 
 " Sublime Text-style multiline commands
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" My plugin to ease Franca idl editing
+Plug 'Yuri-M-Dias/Franca.vim'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -424,7 +427,7 @@ let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 " Grammarous configs
 let g:grammarous#use_vim_spelllang = 1
 
-colorscheme molokai
+colorscheme vividchalk
 
 """"""""""""""""" Keys remapping should go here """""""""""""""""
 nnoremap <F6> :UndotreeToggle<CR>
