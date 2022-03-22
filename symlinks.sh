@@ -31,10 +31,8 @@ ln -sfn "$DOTFILES/gitmessage" ~/.gitmessage
 #Fish configuration
 echo 'Creating fish folders'
 mkdir -p ~/.config/fish/
-#mkdir -p ~/.config/fish/functions/
 ln -sfn "$DOTFILES/fish-config/functions" ~/.config/fish/functions
 ln -sfn "$DOTFILES/fish-config/aliases.fish" ~/.config/fish/aliases.fish
-# TODO: OMF config, themes and plugins?
 # Backup the current one
 #mv ~/.config/fish/config.fish ~/.config/fish/config.fish.bkp
 ln -sfn "$DOTFILES/fish-config/config.fish" ~/.config/fish/config.fish
@@ -55,4 +53,5 @@ ln -s ~/.vim ~/.config/nvim
 ln -s "$DOTFILES/vimrc" ~/.config/nvim/init.vim
 
 echo "Cloning my vimwiki"
-git clone https://github.com/Yuri-M-Dias/wiki ~/vimwiki --progress
+git clone git@github.com:Yuri-M-Dias/wiki.git ~/vimwiki --progress
+

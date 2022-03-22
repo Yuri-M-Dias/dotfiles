@@ -9,17 +9,9 @@ echo "Executing on $DOTFILES"
 
 source "./scripts/common-script-functions.sh"
 
-# No longer needed
-#echo 'Adding necessary repositories'
-#sudo apt-add-repository ppa:fish-shell/release-2 -y
-#sudo add-apt-repository ppa:neovim-ppa/unstable -y
-
 echo 'Installing dependencies'
 sudo apt-get update -y
 #TODO: separate the libs/tools/programming languages here
-
-#sudo apt install \
-#intel-basekit libgtk-3-0 libasound2 libxss1 libnss3 wireshark \
 
 sudo apt install \
     python2.7-dev python3-dev zsh silversearcher-ag \
