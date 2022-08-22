@@ -203,3 +203,12 @@ alias @tfsys="tailf /var/log/syslog"
 
 # Easier to just remember how it works
 alias @nvimPlugInstall="nvim +PlugInstall +PlugClean +UpdateRemotePlugins +qa"
+
+# Easy to calculate last uptime (needs dateutils and journalctl)
+alias timeSinceLastStartup="dateutils.ddiff -f%H:%M:%S (journalctl -n4 -u sleep.target -o short-iso | tail -n 1 | cut -d' ' -f 1) now"
+
+################################
+### AWS with docker
+################################
+alias @aws='docker run --rm -it -v ~/.aws:/root/.aws -v (pwd):/aws amazon/aws-cli'
+

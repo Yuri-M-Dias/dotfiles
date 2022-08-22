@@ -20,7 +20,7 @@ sudo apt install \
     autotools-dev automake ncurses-dev \
     clang cmake clang-format exuberant-ctags \
     python-setuptools python3-setuptools neovim \
-    uncrustify expect neovim tmux \
+    uncrustify expect tmux \
     scrcpy \
     iperf \
     ibus-anthy \
