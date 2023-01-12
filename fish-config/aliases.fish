@@ -191,6 +191,8 @@ alias @dopll="@do pull"
 ################################
 #TODO: make these into some sort of ambient variable?
 alias @dev="cd ~/Dev"
+# I am tired of having to do this manually
+alias @down="cd ~/Downloads"
 alias @dot="cd ~/dotfiles"
 alias @wiki="cd ~/vimwiki"
 
@@ -211,4 +213,3 @@ alias timeSinceLastStartup="dateutils.ddiff -f%H:%M:%S (journalctl -n4 -u sleep.
 ### AWS with docker
 ################################
 alias @aws='docker run --rm -it -v ~/.aws:/root/.aws -v (pwd):/aws amazon/aws-cli'
-
